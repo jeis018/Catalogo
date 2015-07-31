@@ -27,7 +27,8 @@ CREATE TABLE Usuario(
 	Nombres VARCHAR(500) NOT NULL, 
 	Telefono VARCHAR(20) NOT NULL, 
 	Celular VARCHAR(30) NOT NULL, 
-	Direccion VARCHAR(300) NOT NULL, 
+	Direccion VARCHAR(300) NOT NULL,
+        Rol VARCHAR(1) NOT NULL,
 	PRIMARY KEY(idUsuario)
 );
 

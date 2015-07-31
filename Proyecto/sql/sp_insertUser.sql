@@ -15,11 +15,13 @@ CREATE PROCEDURE insertUser(
 	IN _Nombres VARCHAR(500), 
 	IN _Telefono VARCHAR(20), 
 	IN _Celular VARCHAR(30), 
-	IN _Direccion VARCHAR(300))
+	IN _Direccion VARCHAR(300),
+        IN _Rol VARCHAR(1)
+)
 BEGIN
    
-	INSERT INTO Usuario (Cedula, Email, Contrasenna, Nombres, Telefono, Celular, Direccion)
-	VALUES (_Cedula, _Email, _Contrasenna, _Nombres, _Telefono, _Celular, _Direccion);
+	INSERT INTO Usuario (Cedula, Email, Contrasenna, Nombres, Telefono, Celular, Direccion, Rol)
+	VALUES (_Cedula, _Email, _Contrasenna, _Nombres, _Telefono, _Celular, _Direccion, _Rol);
 
 END;
  
