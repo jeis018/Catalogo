@@ -1438,7 +1438,8 @@ h2.title {
 }
 
 .signup-form {
-
+    height: 450px;              /* tamaño formulario registro   */
+    /*background-color: black;*/
 }
 
 .login-form h2, .signup-form h2 {
@@ -1450,10 +1451,10 @@ h2.title {
 }
 
 
-.login-form form input, .signup-form form input {
-    background: #F0F0E9;
-    border: medium none;
-    color: #696763;
+.login-form form input, .signup-form form input, .signup-form form {
+    /*background: #F0F0E9;*/
+    /*border: medium none;*/
+    /*color: #696763;*/
     display: block;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -1463,6 +1464,19 @@ h2.title {
     outline: medium none;
     padding-left: 10px;
     width: 100%;
+}
+
+select#tipo_doc{
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    height: 40px;
+    margin-bottom: 10px;
+    outline: medium none;
+    padding-left: 10px;
+    background: none;
+    border: 1px solid rgb(169, 169, 169);
 }
 
 .login-form form span{
