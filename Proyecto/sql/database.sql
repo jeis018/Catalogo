@@ -12,7 +12,8 @@ CREATE TABLE Producto (
 	Precio INT NOT NULL,
 	NombreImagen VARCHAR(1000) NOT NULL,
 	Referencia VARCHAR(100) NOT NULL, 
-	UnidadVenta INT NOT NULL, 
+	UnidadVenta VARCHAR(100) NOT NULL,
+        Categoria VARCHAR(100) NOT NULL,
 	PRIMARY KEY (idProducto)
 );
 
