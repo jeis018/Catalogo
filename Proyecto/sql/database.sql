@@ -62,6 +62,7 @@ CREATE TABLE DetalleProducto(
 	idDetalleProducto INT NOT NULL AUTO_INCREMENT,
 	idPedido INT NOT NULL, 
 	idProducto INT NOT NULL,
+        CantidadProducto INT NOT NULL,
 	PRIMARY KEY(idDetalleProducto)
 );
 
