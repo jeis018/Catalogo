@@ -80,16 +80,21 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
                         <h3>Agregar Producto</h3>
-                        <div class="signup-form">
-                            <form id="form-nuevo-producto" enctype="">
-                                <input type="text" class="" id="" name="" placeholder="Nombre">
-                                <textarea type="text" class="" id="" name="" rows="5">
-                                    Descripción
-                                </textarea>
-                                <input type="text" class="" id="" name="" placeholder="Precio">
-                                <input type="text" class="" id="" name="" placeholder="Referencia">
-                                <input type="text" class="" id="" name="" placeholder="Unidad de venta">
-                                <input type="file" class="" id="" name="">
+                        <div class="signup-form" style="height: 700px">
+                            <form id="form_nuevo_producto" enctype="multipart/form-data">
+                                <label>Nombre</label>
+                                <input type="text" class="" id="nombre" name="nombre" placeholder="Nombre">
+                                <label>Descripción</label>
+                                <textarea type="text" class="" id="descripcion" name="descripcion" rows="5"></textarea>
+                                <label>Precio</label>
+                                <input type="text" class="" id="precio" name="precio" placeholder="Precio">
+                                <label>Referencia</label>
+                                <input type="text" class="" id="referencia" name="referencia" placeholder="Referencia">
+                                <label>Unidad de vanta</label>
+                                <input type="text" class="" id="unidad" name="unidad" placeholder="Unidad de venta">
+                                <label>Imagen</label>
+                                <input type="file" class="" id="imagen" name="imagen">
+                                <button type="button" id="btn_agregar" class="btn btn-default">Agregar</button>
                             </form>
                         </div>
                     </div>
@@ -188,5 +193,7 @@
         <script src="js/price-range.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/utilities.js"></script>
+        <script src="js/funciones/administration.js"></script>
     </body>
 </html>
