@@ -9,7 +9,7 @@ $mail = $_POST['mail'];
 $pass = $_POST['pass'];
 $rpass = $_POST['rpass'];
 
-require("DBOperator.php");
+require("../config/DBOperator.php");
 $checkemail = mysql_query("call validateUser('$mail')");
 $check_mail = mysql_num_rows($checkemail);
 if ($pass == $rpass) {
