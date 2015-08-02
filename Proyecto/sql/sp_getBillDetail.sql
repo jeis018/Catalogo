@@ -9,7 +9,7 @@
 
 DROP PROCEDURE IF EXISTS getBillDetail;
 
-DELIMITER $$
+DELIMITER $$ 
 CREATE PROCEDURE getBillDetail(
     IN _idOrder INT 
 )

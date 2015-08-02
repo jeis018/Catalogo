@@ -91,72 +91,72 @@ $product = $productIns->getProductById($idProd);
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Esferos</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=1">Esferos</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Borradores</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=2">Borradores</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Carpetas</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=3">Carpetas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Cintas</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=4">Cintas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Compas</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=5">Compas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Lapices</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=6">Lapices</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Pegantes</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=7">Pegantes</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Portaminas</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=8">Portaminas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Resaltadores</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=9">Resaltadores</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Corretor</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=10">Corretor</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Tijeras</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=11">Tijeras</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Marcador</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=12">Marcador</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Kit</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=13">Kit</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="#">Tajalapiz</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=14">Tajalapiz</a></h4>
                                     </div>
                                 </div>
                             </div><!--/category-productsr-->
