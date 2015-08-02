@@ -13,3 +13,28 @@ $.fn.serializeForm = function(){
     });
     return o;
 };
+
+
+function Post(resc, dataget, callback, error) {
+    var xmlhttp = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP");
+    var request;
+    callback = callback || function(){};
+    error = error || function(){};
+    if(!(dataget instanceof Function)){
+        return;
+    }
+    request = dataget();
+    if(request == null){
+        return;
+    }
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200){
+            callback(xmlhttp.responseText);
+        }else if(xmlhttp.status === 404){
+            error();
+        }
+    };
+    xmlhttp.open("POST", resc, true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(request);
+}

@@ -14,44 +14,28 @@
 
 
 $('#btn_agregar').click(function () {
-
-    var producto = $('#form_nuevo_producto').serializeForm();
-    var formData;
     
-    if($('#imagen').val() !== ""){
-        formData = new FormData($('#form_nuevo_producto')[0]);      //console.log(formData);        
-        //producto.imagen = formData;
-    }else{
-        //producto.imagen = '';        
-    }
-    
-    
-    if(producto.nombre === "" || producto.precio === "" || producto.unidad === ""){
-        alert('Los campos de nombre, precio y unidad de venta, son obligatorios ');
-        return;
-    }
-
-    
-    console.log(producto);
-    
-    
-    var peticion = 'peticion=';
-    peticion += JSON.stringify({datos : producto});
-    
-    console.log(peticion)
+    var formData =  new FormData($('#form_nuevo_producto')[0]);
     
     $.ajax({
         url: '../controller/agregarProductos.php',
         type: "POST",
-        data: peticion,
-        /*contentType: false,
-        processData: false,*/
-        success: function (datos)
-        {
-            alert(datos);
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (datos)   
+        {                           console.log(datos)
+            datos = JSON.parse(datos);
+            
+            alert(datos['msg']);
+            
+            if(datos['estado'] === 1){
+                $('#form_nuevo_producto').trigger('reset');                
+            }
         }
 
     });
+    
 });
 
 
