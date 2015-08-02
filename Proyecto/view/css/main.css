@@ -1466,6 +1466,17 @@ h2.title {
     width: 100%;
 }
 
+.signup-form textarea{
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    outline: medium none;
+    padding-left: 10px;
+    width: 100%;
+}
+
 select#tipo_doc{
     display: block;
     font-family: 'Roboto', sans-serif;
