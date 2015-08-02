@@ -14,12 +14,13 @@ CREATE PROCEDURE insertProduct(
 	IN _Precio INT,
 	IN _NombreImagen VARCHAR(1000),
 	IN _Referencia VARCHAR(100), 
-	IN _UnidadVenta INT 
+	IN _UnidadVenta VARCHAR(100), 
+        IN _Categoria VARCHAR(100)
 )
 BEGIN
    
-	INSERT INTO Producto (Nombre, Descripcion, Precio, NombreImagen,	Referencia, UnidadVenta)
-	VALUES (_Nombre, _Descripcion, _Precio, _NombreImagen, _Referencia, _UnidadVenta);
+	INSERT INTO Producto (Nombre, Descripcion, Precio, NombreImagen, Referencia, UnidadVenta, Categoria)
+	VALUES (_Nombre, _Descripcion, _Precio, _NombreImagen, _Referencia, _UnidadVenta, _Categoria);
 
 END;
  
