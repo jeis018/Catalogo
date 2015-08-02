@@ -1,21 +1,12 @@
 <?php
 require_once ('../model/products/Products.php');
-require_once ('../lib/Zebra_Pagination.php');
 
-$indicatorCategory = $_GET["indicator"];
+$idProd = $_GET["idProducto"];
 
-$product = new Products();
-$zebraPage = new Zebra_Pagination();
-
-$productsPerPage = 10;
-$limit = ($zebraPage->get_page() - 1) * $productsPerPage;
-
-$regProducts = $product->loadProducts($limit, $productsPerPage, $indicatorCategory);
-$totalProducts = $product->totalRows($indicatorCategory);
-
-$zebraPage->records($totalProducts);
-$zebraPage->records_per_page($productsPerPage);
+$productIns = new Products();
+$product = $productIns->getProductById($idProd);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -23,7 +14,7 @@ $zebraPage->records_per_page($productsPerPage);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Shop | E-Shopper</title>
+        <title>Product Details | E-Shopper</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -80,7 +71,7 @@ $zebraPage->records_per_page($productsPerPage);
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="index.html">Inicio</a></li>
-                                    <li><a class="active" href="shop.php?indicator=0" >Productos</a></li>
+                                    <li><a class="active" href="shop.php?indicator=0">Productos</a></li> 
                                     <li><a href="contact-us.html">Contactenos</a></li>
                                 </ul>
                             </div>
@@ -91,12 +82,6 @@ $zebraPage->records_per_page($productsPerPage);
             </div>
         </header>
 
-        <section id="advertisement">
-            <div class="container">
-                <img src="images/shop/advertisement.jpg" alt="" />
-            </div>
-        </section>
-
         <section>
             <div class="container">
                 <div class="row">
@@ -106,127 +91,109 @@ $zebraPage->records_per_page($productsPerPage);
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=1">Esferos</a></h4>
+                                        <h4 class="panel-title"><a href="#">Esferos</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=2">Borradores</a></h4>
+                                        <h4 class="panel-title"><a href="#">Borradores</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=3">Carpetas</a></h4>
+                                        <h4 class="panel-title"><a href="#">Carpetas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=4">Cintas</a></h4>
+                                        <h4 class="panel-title"><a href="#">Cintas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=5">Compas</a></h4>
+                                        <h4 class="panel-title"><a href="#">Compas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=6">Lapices</a></h4>
+                                        <h4 class="panel-title"><a href="#">Lapices</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=7">Pegantes</a></h4>
+                                        <h4 class="panel-title"><a href="#">Pegantes</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=8">Portaminas</a></h4>
+                                        <h4 class="panel-title"><a href="#">Portaminas</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=9">Resaltadores</a></h4>
+                                        <h4 class="panel-title"><a href="#">Resaltadores</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=10">Corretor</a></h4>
+                                        <h4 class="panel-title"><a href="#">Corretor</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=11">Tijeras</a></h4>
+                                        <h4 class="panel-title"><a href="#">Tijeras</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=12">Marcador</a></h4>
+                                        <h4 class="panel-title"><a href="#">Marcador</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=13">Kit</a></h4>
+                                        <h4 class="panel-title"><a href="#">Kit</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=14">Tajalapiz</a></h4>
+                                        <h4 class="panel-title"><a href="#">Tajalapiz</a></h4>
                                     </div>
                                 </div>
                             </div><!--/category-productsr-->
+
                         </div>
                     </div>
 
                     <div class="col-sm-9 padding-right">
-                        <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Productos</h2>
-                            <?php
-                            if (isset($regProducts)) {
-                                for ($i = 0; $i < count($regProducts); $i++) {
-                                    $img = $regProducts[$i]["NombreImagen"];
-                                    ?>
-                                    <div class="col-sm-4">
-                                        <div class="product-image-wrapper">
-                                            <div class="single-products">
-                                                <div class="productinfo text-center">
-                                                    <?php
-                                                    echo '<img src="images/catalogo/' . $img . '" alt="Imagen" />';
-                                                    echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
-                                                    echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
-                                                    ?>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-                                                </div>
-                                                <div class="product-overlay">
-                                                    <div class="overlay-content">
-                                                        <?php
-                                                        echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
-                                                        echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
-                                                        ?>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="choose">
-                                                <ul class="nav nav-pills nav-justified">
-                                                    <?php
-                                                    echo '<li><a href=product-details.php?idProducto="' . $regProducts[$i]["idProducto"] . '"><i class="fa fa-plus-square"></i>Consultar detalle</a></li>';
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="product-details"><!--product-details-->
+                            <div class="col-sm-5">
+                                <div class="view-product">
                                     <?php
-                                }
-                            }
-                            ?>
+                                    echo '<img src="images/catalogo/' . $product->getNombreImagen() . '" alt="" />';
+                                    ?>
+                                    <h3>ZOOM</h3>
+                                </div>
 
-                            <ul class="pagination">
-                                <?php
-                                $zebraPage->render();
-                                ?>
-                            </ul>
-                        </div><!--features_items-->
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="product-information"><!--/product-information-->
+                                    <?php
+                                    echo '<h2>' . $product->getNombre() . ' ' . $product->getDescripcion() . '</h2>';
+                                    echo '<p>Referencia: ' . $product->getReferencia() . '</p>';
+                                    echo '<span>';
+                                    echo '<span>$' . $product->getPrecio() . '</span>';
+                                    echo '<label>Cantidad: </label>';
+                                    echo '<input type = "text" value = "1" />';
+                                    echo '<button type = "button" class = "btn btn-fefault cart">';
+                                    echo '<i class = "fa fa-shopping-cart"></i>';
+                                    echo ' Agregar al carrito';
+                                    echo '</button>';
+                                    echo '</span>';
+                                    echo '<p><b>Presentación: </b>' . $product->getUnidadVenta() . '</p>';
+                                    ?>
+                                </div><!--/product-information-->
+                            </div>
+                        </div><!--/product-details-->
                     </div>
                 </div>
             </div>

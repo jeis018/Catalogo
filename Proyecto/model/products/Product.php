@@ -17,7 +17,7 @@ class Product {
     private $categoria;
 
     /**
-     * Constructor por defecto de la clase
+     * Constructor por defecto de la clase con parámetros de entrada
      * @param type $idProducto
      * @param type $nombre
      * @param type $descripcion
