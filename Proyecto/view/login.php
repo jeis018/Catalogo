@@ -81,14 +81,14 @@
                     <div class="col-sm-4 col-sm-offset-1">
                         <div class="login-form"><!--login form-->
                             <h2>Accede a tu cuenta</h2>
-                            <form action="#">
+                            <form action="../controller/validar.php">
                                 <input type="email" placeholder="Correo" />
                                 <input type="password" placeholder="Contraseña" />
                                 <!--<span>
                                     <input type="checkbox" class="checkbox"> 
                                     Keep me signed in
                                 </span>-->
-                                <button type="submit" class="btn btn-default">Entrar</button>
+                                <button type="submit" name="submit2" class="btn btn-default">Entrar</button>
                             </form>
                         </div><!--/login form-->
                     </div>
@@ -98,7 +98,7 @@
                     <div class="col-sm-4">
                         <div class="signup-form"><!--sign up form-->
                             <h2>Nuevo Usuario, Registrate!</h2>
-                            <form action="#">
+<!--                            <form action="../controller/registro.php">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <select id="tipo_doc">
@@ -121,8 +121,8 @@
                                 <input type="email" name="mail" placeholder="Correo Electronico"/>
                                 <input type="password" name="pass" placeholder="Contraseña"/>
                                 <input type="password" name="rpass" placeholder="Repetir Contraseña"/>
-                                 <button type="submit" class="btn btn-default">Entrar</button>
-                            </form>
+                                <button type="submit" name="submit1" class="btn btn-default">Entrar</button>
+                            </form>-->
                         </div><!--/sign up form-->
                     </div>
                 </div>
@@ -212,11 +212,14 @@
             </div>
 
 
-<?php
-		if(isset($_POST['submit'])){
-			require("controller/registro.php");
-		}
-	?>
+//<?php
+//		if(isset($_POST['submit1'])){
+//			require("../controller/registro.php");
+//		}
+//		if(isset($_POST['submit2'])){
+//			require("controller/validar.php");
+//		}
+//	?>
         </footer><!--/Footer-->
 
 

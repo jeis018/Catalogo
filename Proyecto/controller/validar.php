@@ -1,7 +1,7 @@
 
 <?php
 
-require("DBOperator.php");
+require("../config/DBOperator.php");
 $username = $_POST['mail'];
 $pass = $_POST['pass'];
 
