@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Login | E-Shopper</title>
+        <title>Login | Madessa</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -64,7 +64,7 @@
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
                                     <li><a href="index.html">Inicio</a></li>
-                                    <li class="dropdown"><a href="shop.html">Productos</a></li>
+                                    <li class="dropdown"><a href="shop.php">Productos</a></li>
                                     <li><a href="contact-us.html">Contactenos</a></li>
                                 </ul>
                             </div>
@@ -121,7 +121,7 @@
                                 <input type="email" name="mail" placeholder="Correo Electronico"/>
                                 <input type="password" name="pass" placeholder="Contraseña"/>
                                 <input type="password" name="rpass" placeholder="Repetir Contraseña"/>
-                                <button type="submit" name="submit" class="btn btn-default">Registrar</button>
+                                 <button type="submit" class="btn btn-default">Entrar</button>
                             </form>
                         </div><!--/sign up form-->
                     </div>
@@ -214,7 +214,7 @@
 
 <?php
 		if(isset($_POST['submit'])){
-			require("registro.php");
+			require("controller/registro.php");
 		}
 	?>
         </footer><!--/Footer-->
