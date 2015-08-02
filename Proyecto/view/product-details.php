@@ -48,7 +48,7 @@ $product = $productIns->getProductById($idProd);
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-                                    <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>
                                 </ul>
                             </div>
                         </div>

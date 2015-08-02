@@ -8,7 +8,7 @@ DROP PROCEDURE IF EXISTS getTotalProducts;
 
 DELIMITER $$
 CREATE PROCEDURE getTotalProducts(
-    IN _Category INT
+    IN _IndicatorCategory INT
 )
 BEGIN
 

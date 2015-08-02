@@ -1,6 +1,6 @@
 <?php
 
-require_once ('../config/DBOperator.php');
+require_once ('../config/DBOperatorB.php');
 require_once ('Product.php');
 
 /**
@@ -13,6 +13,7 @@ class Products {
     private $products;
     private $totalRows;
     private $product;
+    private $dbOperator;
 
     /**
      * Constructor por defecto de la aplicación
@@ -20,17 +21,7 @@ class Products {
     function __construct() {
         $this->products = array();
         $this->totalRows = 0;
-    }
-
-    /**
-     * Obtiene la conexión a la base de datos
-     * @return type
-     */
-    public static function conn() {
-        $conexion = mysql_connect("localhost", "root", "123456");
-        mysql_query("SET NAMES 'utf8");
-        mysql_select_db("catalogo");
-        return $conexion;
+        $this->dbOperator = new DBOperatorB();
     }
 
     /**
@@ -40,10 +31,9 @@ class Products {
      * @return type
      */
     public function loadProducts($limit, $productsPerPage, $indicatorCategory) {
-        //$db = new DBDriver(PDOConfig::getInstance());
         $queryProducts = "CALL getProducts(" . $limit . ", " . $productsPerPage . ", " . $indicatorCategory . ")";
-        //$resultProducts = $db->set($queryProducts, array());
-        $resultProducts = mysql_query($queryProducts, $this->conn());
+        
+        $resultProducts = mysql_query($queryProducts, $this->dbOperator->conn());
         while ($reg = mysql_fetch_assoc($resultProducts)) {
             $this->products[] = $reg;
         }
@@ -57,7 +47,7 @@ class Products {
      */
     public function totalRows($indicatorCategory) {
         $queryTotalRows = "CALL getTotalProducts(" . $indicatorCategory . ")";
-        $totalReg = mysql_query($queryTotalRows, $this->conn());
+        $totalReg = mysql_query($queryTotalRows, $this->dbOperator->conn());
         $arrAux = array();
         while ($reg = mysql_fetch_assoc($totalReg)) {
             $arrAux[] = $reg;
@@ -77,7 +67,7 @@ class Products {
      */
     public function getProductById($idProduct) {
         $queryGetProductsById = "call getProductById(" . $idProduct . ")";
-        $regProd = mysql_query($queryGetProductsById, $this->conn());
+        $regProd = mysql_query($queryGetProductsById, $this->dbOperator->conn());
         $arrAux = array();
         while ($reg = mysql_fetch_assoc($regProd)) {
             $arrAux[] = $reg;

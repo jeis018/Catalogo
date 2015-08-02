@@ -41,7 +41,7 @@
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-                                    <li><a href="login.html" class="active"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="login.php" class="active"><i class="fa fa-lock"></i> Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -81,9 +81,9 @@
                     <div class="col-sm-4 col-sm-offset-1">
                         <div class="login-form"><!--login form-->
                             <h2>Accede a tu cuenta</h2>
-                            <form action="../controller/validar.php">
-                                <input type="email" placeholder="Correo" />
-                                <input type="password" placeholder="Contraseña" />
+                            <form method="POST" name="formLogin" action="../controller/CLogin.php">
+                                <input type="email" name="mail" placeholder="Correo" />
+                                <input type="password" name="pass" placeholder="Contraseña" />
                                 <!--<span>
                                     <input type="checkbox" class="checkbox"> 
                                     Keep me signed in
@@ -98,7 +98,7 @@
                     <div class="col-sm-4">
                         <div class="signup-form"><!--sign up form-->
                             <h2>Nuevo Usuario, Registrate!</h2>
-<!--                            <form action="../controller/registro.php">
+                            <form method="POST" name="formLogin" action="../controller/CRegistro.php">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <select id="tipo_doc">
@@ -120,9 +120,8 @@
                                 <input type="text" name="dir" placeholder="Dirección"/>
                                 <input type="email" name="mail" placeholder="Correo Electronico"/>
                                 <input type="password" name="pass" placeholder="Contraseña"/>
-                                <input type="password" name="rpass" placeholder="Repetir Contraseña"/>
-                                <button type="submit" name="submit1" class="btn btn-default">Entrar</button>
-                            </form>-->
+                                <button type="submit" name="submit1" class="btn btn-default">Registrar</button>
+                            </form>
                         </div><!--/sign up form-->
                     </div>
                 </div>
@@ -212,14 +211,15 @@
             </div>
 
 
-//<?php
+            //<?php
 //		if(isset($_POST['submit1'])){
 //			require("../controller/registro.php");
 //		}
 //		if(isset($_POST['submit2'])){
 //			require("controller/validar.php");
 //		}
-//	?>
+//	
+            ?>
         </footer><!--/Footer-->
 
 

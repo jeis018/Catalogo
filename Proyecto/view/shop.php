@@ -57,7 +57,7 @@ $zebraPage->records_per_page($productsPerPage);
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
                                     <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-                                    <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -199,9 +199,11 @@ $zebraPage->records_per_page($productsPerPage);
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
                                                     <?php
-                                                    echo '<img src="images/catalogo/' . $img . '" alt="Imagen" />';
+                                                                                        echo '<tr>';
+                                                    echo '<img src="images/catalogo/' . $img . '" alt="Imagen" WIDTH=200 HEIGHT=311 />';
                                                     echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                     echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
+                                                      echo '</tr>';
                                                     ?>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
                                                 </div>
