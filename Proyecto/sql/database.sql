@@ -42,7 +42,7 @@ CREATE TABLE Pedido(
 	TotalPedido INT NOT NULL, 
 	TipoPedido VARCHAR(1) NOT NULL,
         Estado INT NOT NULL,
-        fechaSolicitud VARCHAR(8) NOT NULL, 
+        fechaSolicitud VARCHAR(10) NOT NULL, 
 	PRIMARY KEY(idPedido)
 );
 

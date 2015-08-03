@@ -12,7 +12,7 @@ require_once ('../../lib/PHPExcel/IOFactory.php');
  *
  * @author hespitia
  */
-class Orders implements IReport {
+class OrdersReport implements IReport {
 
     private $header;
     private $body;
@@ -21,6 +21,9 @@ class Orders implements IReport {
     private $dbOperator;
     private $totalOrder;
 
+    /**
+     * Constructor por defecto de la clase sin parámetros de entrada.
+     */
     public function __construct() {
         $this->header = array();
         $this->body = array();
@@ -30,6 +33,11 @@ class Orders implements IReport {
         $this->totalOrder = 0;
     }
 
+    /**
+     * Obtiene la ruta completa del archivo en el que se encuentra consigana la 
+     * plantilla para la generación del excel.
+     * @return type
+     */
     public function getFileNamePath() {
         $directorio = opendir("./");
         while ($archivo = readdir($directorio)) {
@@ -43,6 +51,7 @@ class Orders implements IReport {
 
     /**
      * Método que permite realizar la generación del reporte en excel de las ordenes de compra.
+     * @$idOrder: Genera el reporte en excel
      */
     public function generateReport($idOrder) {
         $queryHeader = "CALL getBillHeader(" . $idOrder . ")";
@@ -54,7 +63,7 @@ class Orders implements IReport {
         mysql_close();
 
         $fileBase = $this->getFileNamePath();
-        $fileReport = dirname($fileBase) . "\\Orden_" . $this->headerList[0]->getIdPedido() . "_" . $this->headerList[0]->getFechaSolicitud() . ".xls";
+        $fileReport = "\\Orden_" . $this->headerList[0]->getIdPedido() . "_" . $this->headerList[0]->getFechaSolicitud() . ".xls";
         $queryDetail = "CALL getBillDetail(" . $idOrder . ")";
         $bodyResult = mysql_query($queryDetail, $this->dbOperator->conn());
         while ($reg2 = mysql_fetch_assoc($bodyResult)) {
@@ -94,8 +103,12 @@ class Orders implements IReport {
         $readerExcel->getActiveSheet()->setCellValue(('E' . $initialIndex), $result[2]);
         $readerExcel->getActiveSheet()->setCellValue(('A' . $initialIndex++), "TOTAL");
 
+        header('Content-Type: application/vnd.ms-excel');
+        header('Content-Disposition: attachment;filename="' . $fileReport . '"');
+        header('Cache-Control: max-age=0');
+        
         $writerExcel = PHPExcel_IOFactory::createWriter($readerExcel, 'Excel5');
-        $writerExcel->save($fileReport);
+        $writerExcel->save('php://output');
     }
 
     /**
@@ -137,6 +150,11 @@ class Orders implements IReport {
         }
     }
 
+    /**
+     * Retorna un arreglo con los valores que se presentan en el segmento de totales
+     * de la aplicación.
+     * @return type
+     */
     private function calculateTotal() {
         $result = array();
         $iva = $this->totalOrder * 0.16;

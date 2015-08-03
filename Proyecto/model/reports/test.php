@@ -1,9 +1,9 @@
 <?php
 
 
-require_once 'Orders.php';
+require_once 'OrdersReport.php';
 
-$reportExcel = new Orders();
+$reportExcel = new OrdersReport();
 $reportExcel->generateReport(1);
 echo 'Finalicé !!'
 ?>
