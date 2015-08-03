@@ -30,7 +30,7 @@ BEGIN
 
     IF _indicadorOperacion = 0 THEN
         SET _indicadorExistencia = (SELECT COUNT(*) FROM Usuario WHERE Email = _email);
-        IF _indicadorExistencia <> 0 THEN
+        IF _indicadorExistencia = 0 THEN
             SELECT '00' AS 'CodigoRespuesta', '-' AS 'Rol';
         ELSE
             SELECT '10' AS 'CodigoRespuesta', '-' AS 'Rol';

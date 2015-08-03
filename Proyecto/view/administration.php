@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -31,14 +33,23 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                                <a href="index.php"><img src="images/home/logo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-                                    <li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
+                                    <?php
+                                    if (isset($_SESSION["logedOn"])) {
+                                        $logedOn = $_SESSION["logedOn"];
+                                        if ($logedOn == FALSE) {
+                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
+                                        } else {
+                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
+                                        }
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -60,17 +71,23 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.html">Inicio</a></li>
-                                    <li><a href="shop.html" >Productos</a></li>
-                                    <li><a href="contact-us.html">Contáctenos</a></li>
-                                    <li class="dropdown"><a href="#">Administración<i class="fa fa-angle-down"></i></a>
-                                        <ul role="menu" class="sub-menu">
-                                            <li><a href="orders.php">Ordenes de Compra</a></li>
-                                            <li><a href="administration.php"  class="active">Agregar Productos</a></li>
-                                        </ul>
-                                    </li> 
-
-
+                                    <li><a href="index.php" class="active">Inicio</a></li>
+                                    <li><a href="shop.php?indicator=0" >Productos</a></li>
+                                    <li><a href="contact-us.php">Contáctenos</a></li>
+                                    <?php
+                                    if (isset($_SESSION["userType"])) {
+                                        $userType = $_SESSION["userType"];
+                                        if ($userType == 'A') {
+                                            echo
+                                            '<li class = "dropdown"><a href = "#">Administración<i class = "fa fa-angle-down"></i></a>
+                                            <ul role = "menu" class = "sub-menu">
+                                            <li><a href = "orders.php">Ordenes de Compra</a></li>
+                                            <li><a href = "administration.php">Agregar Productos</a></li>
+                                            </ul>
+                                            </li>';
+                                        }
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -90,9 +107,9 @@
                         <div class="signup-form" style="height: 700px">
                             <form id="form_nuevo_producto" enctype="multipart/form-data">
                                 <label>Nombre</label>
-                                <input type="text" class="" id="nombre" name="nombre" placeholder="Nombre" autofocus="true">
+                                <input type="text" class="" id="nombre" name="nombre" placeholder="Nombre" autofocus>
                                 <label>Descripción</label>
-                                <textarea type="text" class="" id="descripcion" name="descripcion" rows="5"></textarea>
+                                <textarea class="" id="descripcion" name="descripcion" rows="5"></textarea>
                                 <label>Precio</label>
                                 <input type="text" class="" id="precio" name="precio" placeholder="Precio">
                                 <label>Referencia</label>

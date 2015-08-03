@@ -16,7 +16,7 @@ CREATE PROCEDURE getBillDetail(
 BEGIN
    
     SELECT P.Referencia, P.Nombre, P.Precio, DE.CantidadProducto, (P.Precio * DE.CantidadProducto) AS 'PrecioTotalProducto'
-    FROM Producto P INNER JOIN DetalleProducto DE ON P.idProducto = DE.idProducto
+    FROM Producto P INNER JOIN DetallePedido DE ON P.idProducto = DE.idProducto
                     INNER JOIN Pedido PE ON DE.idPedido = PE.idPedido
     WHERE PE.idPedido = 1;
 

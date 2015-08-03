@@ -59,7 +59,7 @@ CREATE TABLE Inventario(
 -- ===============================================================
 -- Detalle de producto
 -- ===============================================================
-CREATE TABLE DetalleProducto(
+CREATE TABLE DetallePedido(
 	idDetalleProducto INT NOT NULL AUTO_INCREMENT,
 	idPedido INT NOT NULL, 
 	idProducto INT NOT NULL,
@@ -72,5 +72,5 @@ CREATE TABLE DetalleProducto(
 -- ===============================================================
 ALTER TABLE Pedido ADD FOREIGN KEY(idUsuario) REFERENCES Usuario(idUsuario);
 ALTER TABLE Inventario ADD FOREIGN KEY(idProducto) REFERENCES Producto(idProducto);
-ALTER TABLE DetalleProducto ADD FOREIGN KEY(idPedido) REFERENCES Pedido(idPedido);
-ALTER TABLE DetalleProducto ADD FOREIGN KEY(idProducto) REFERENCES Producto(idProducto);
+ALTER TABLE DetallePedido ADD FOREIGN KEY(idPedido) REFERENCES Pedido(idPedido);
+ALTER TABLE DetallePedido ADD FOREIGN KEY(idProducto) REFERENCES Producto(idProducto);

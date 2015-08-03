@@ -23,7 +23,7 @@ class Login {
      */
     function __construct($username, $pass) {
         $this->username = $username;
-        $this->pass = $pass;
+        $this->pass = sha1($pass);
         $this->dbOperator = new DBOperatorB();
     }
 

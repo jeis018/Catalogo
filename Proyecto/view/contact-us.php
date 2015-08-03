@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Home | Madessa</title>
+        <title>Contact | Madessa</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/prettyPhoto.css" rel="stylesheet">
@@ -95,22 +95,56 @@
                 </div>
             </div><!--/header-bottom-->
         </header><!--/header-->
-        
-        <section>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <div id="listado_ordenes">
-                            
+
+        <div id="contact-page" class="container">
+            <div class="bg">
+                <div class="row">    		
+                    <div class="col-sm-12">    			   			
+                        <h2 class="title text-center">Contáctenos</h2>    			    				    				
+                        <div id="gmap" class="contact-map">
+                        </div>
+                    </div>			 		
+                </div>    	
+                <div class="row">  	
+                    <div class="col-sm-8">
+                        <div class="contact-form">
+                            <h2 class="title text-center">Escríbanos</h2>
+                            <div class="alert alert-success" style="display: none"></div>
+                            <form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="../controller/CContactUs.php">
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="name" class="form-control" required="required" placeholder="Nombre">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="text" name="subject" class="form-control" required="required" placeholder="Asunto">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Ingrese aquí su mensaje"></textarea>
+                                </div>                        
+                                <div class="form-group col-md-12">
+                                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Enviar">
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-md-2"></div>
-                </div>      <!--    FIN ROW     -->
-            </div>          <!-- FIN CONTAINER  -->
-        </section>
-
-
+                    <div class="col-sm-4">
+                        <div class="contact-info">
+                            <h2 class="title text-center">Información de contacto</h2>
+                            <address>
+                                <p>Madessa.</p>
+                                <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+                                <p>Newyork USA</p>
+                                <p>Teléfono: +2346 17 38 93</p>
+                                <p>Fax: 1-714-252-0026</p>
+                                <p>Email: info@Madessa.com</p>
+                            </address>
+                        </div>
+                    </div>    			
+                </div>  
+            </div>	
+        </div><!--/#contact-page-->
 
         <footer id="footer"><!--Footer-->
             <div class="footer-top">
@@ -193,53 +227,15 @@
                 </div>
             </div>
         </footer><!--/Footer-->
-        
-        
-        
-        <script type="text/template" id="temp_lista_ordenes">
-            <div class="panel panel-default">
-                <div class="panel-heading">Ordenes</div>
-                <div class="panel-body">
-                    <div style="height: 500px; overflow-y: auto">
-                            <table class="table table-hover table-responsive" id="lista">
-                            <thead>
-                                <tr>
-                                    <th>Fecha Solicitud</th>
-                                    <th>Total</th>
-                                    <th>Email</th>
-                                    <th>Accion</th>
-                                </tr>
-                            </thead>
-                            <tbody >
-                                <%_.each(ordenes, function(orden){%>
-                                    <tr>
-                                        <td><%-orden.fechaSolicitud%></td>      
-                                        <td><%-orden.TotalPedido%></td>      
-                                        <td><%-orden.Email%></td>      
-                                        <td><button type="button" data-role="atender" data-id="<%-orden.idPedido%>">Atender</button></td>      
-                                        <td>
-
-                                        </td>      
-                                    </tr>
-                                <%});%>       
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </script>
-        
-        
-        
 
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.scrollUp.min.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+        <script type="text/javascript" src="js/gmaps.js"></script>
+        <script src="js/contact.js"></script>
         <script src="js/price-range.js"></script>
+        <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
-        <script src="js/utilities2.js"></script>
-        <script src="js/utilities.js"></script>
-        <script src="js/funciones/orders.js"></script>
     </body>
 </html>

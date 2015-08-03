@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once ('../model/products/Products.php');
 require_once ('../lib/Zebra_Pagination.php');
 
@@ -7,7 +8,7 @@ $indicatorCategory = $_GET["indicator"];
 $product = new Products();
 $zebraPage = new Zebra_Pagination();
 
-$productsPerPage = 10;
+$productsPerPage = 12;
 $limit = ($zebraPage->get_page() - 1) * $productsPerPage;
 
 $regProducts = $product->loadProducts($limit, $productsPerPage, $indicatorCategory);
@@ -49,15 +50,23 @@ $zebraPage->records_per_page($productsPerPage);
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+                                <a href="index.php"><img src="images/home/logo.png" alt="" /></a>
                             </div>
-
                         </div>
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-                                    <li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>
+                                    <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
+                                    <?php
+                                    if (isset($_SESSION["logedOn"])) {
+                                        $logedOn = $_SESSION["logedOn"];
+                                        if ($logedOn == FALSE) {
+                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
+                                        } else {
+                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
+                                        }
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
@@ -79,16 +88,30 @@ $zebraPage->records_per_page($productsPerPage);
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.html">Inicio</a></li>
-                                    <li><a class="active" href="shop.php?indicator=0" >Productos</a></li>
-                                    <li><a href="contact-us.html">Contactenos</a></li>
+                                    <li><a href="index.php" class="active">Inicio</a></li>
+                                    <li><a href="shop.php?indicator=0" >Productos</a></li>
+                                    <li><a href="contact-us.php">Contáctenos</a></li>
+                                    <?php
+                                    if (isset($_SESSION["userType"])) {
+                                        $userType = $_SESSION["userType"];
+                                        if ($userType == 'A') {
+                                            echo
+                                            '<li class = "dropdown"><a href = "#">Administración<i class = "fa fa-angle-down"></i></a>
+                                            <ul role = "menu" class = "sub-menu">
+                                            <li><a href = "orders.php">Ordenes de Compra</a></li>
+                                            <li><a href = "administration.php">Agregar Productos</a></li>
+                                            </ul>
+                                            </li>';
+                                        }
+                                    }
+                                    ?>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </header>
+            </div><!--/header-bottom-->
+        </header><!--/header-->
 
         <section id="advertisement">
             <div class="container">
@@ -199,11 +222,11 @@ $zebraPage->records_per_page($productsPerPage);
                                             <div class="single-products">
                                                 <div class="productinfo text-center">
                                                     <?php
-                                                                                        echo '<tr>';
+                                                    echo '<tr>';
                                                     echo '<img src="images/catalogo/' . $img . '" alt="Imagen" WIDTH=200 HEIGHT=300 />';
                                                     echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                     echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
-                                                      echo '</tr>';
+                                                    echo '</tr>';
                                                     ?>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
                                                 </div>
@@ -230,24 +253,24 @@ $zebraPage->records_per_page($productsPerPage);
                                 }
                             }
                             ?>   
-                              
-                           
+
+
                         </div><!--features_items-->
                     </div>
-                     
+
                 </div>
-               
+
             </div>   
             <center>
-                  <?php
-                                     echo '<ul class="pagination">';
-                                     $zebraPage->render();
-                                     echo '</ul>';
-                                     ?>
+                <?php
+                echo '<ul class="pagination">';
+                $zebraPage->render();
+                echo '</ul>';
+                ?>
             </center>
-           
+
         </section>
-        
+
         <footer id="footer"><!--Footer-->
             <div class="footer-top">
                 <div class="container">
