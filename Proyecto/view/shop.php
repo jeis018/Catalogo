@@ -229,19 +229,25 @@ $zebraPage->records_per_page($productsPerPage);
                                     <?php
                                 }
                             }
-                            ?>
-
-                            <ul class="pagination">
-                                <?php
-                                $zebraPage->render();
-                                ?>
-                            </ul>
+                            ?>   
+                              
+                           
                         </div><!--features_items-->
                     </div>
+                     
                 </div>
-            </div>
+               
+            </div>   
+            <center>
+                  <?php
+                                     echo '<ul class="pagination">';
+                                     $zebraPage->render();
+                                     echo '</ul>';
+                                     ?>
+            </center>
+           
         </section>
-
+        
         <footer id="footer"><!--Footer-->
             <div class="footer-top">
                 <div class="container">
