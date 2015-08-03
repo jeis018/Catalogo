@@ -32,7 +32,7 @@ class Products {
      */
     public function loadProducts($limit, $productsPerPage, $indicatorCategory) {
         $queryProducts = "CALL getProducts(" . $limit . ", " . $productsPerPage . ", " . $indicatorCategory . ")";
-        
+
         $resultProducts = mysql_query($queryProducts, $this->dbOperator->conn());
         while ($reg = mysql_fetch_assoc($resultProducts)) {
             $this->products[] = $reg;
@@ -82,12 +82,20 @@ class Products {
                 $referencia = $arrAux[$i]["Referencia"];
                 $unidadVenta = $arrAux[$i]["UnidadVenta"];
                 $categoria = $arrAux[$i]["Categoria"];
-                $this->product = new Product($idProducto, $nombre, $descripcion,
-                                $precio, $nombreImagen, $referencia, $unidadVenta, $categoria);
+                $this->product = new Product($idProducto, $nombre, $descripcion, $precio, $nombreImagen, $referencia, $unidadVenta, $categoria);
             }
         }
         mysql_close();
         return $this->product;
+    }
+
+    public function getRandomProducts() {
+        $randomProducts = array();
+        $totalRows = $this->totalRows(0);
+        for ($i = 0; $i < 6; $i++) {
+            $randomProducts[$i] = $this->getProductById(rand(1, $totalRows));
+        }
+        return $randomProducts;
     }
 
 }

@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php
+session_start();
+
+require_once ('../model/products/Products.php');
+$randomProduct = new Products();
+$productsRandom = $randomProduct->getRandomProducts();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -173,12 +179,7 @@
 
                     <div id="gmap">
                         <div class="features_items"><!--features_items-->
-                            <div class="recommended_items"><!--recommended_items-->
-
-                            </div><!--features_items-->
-
-                            <h2 class="title text-center">recommended items</h2>
-
+                            <h2 class="title text-center">Algunos productos</h2>
                             <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="item active">	
@@ -186,36 +187,14 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="images/home/recommend1.jpg" alt="" />
-                                                        <h2>$56</h2>
-                                                        <p>Easy Polo Black Edition</p>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <img src="images/home/recommend2.jpg" alt="" />
-                                                        <h2>$56</h2>
-                                                        <p>Easy Polo Black Edition</p>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <img src="images/home/recommend3.jpg" alt="" />
-                                                        <h2>$56</h2>
-                                                        <p>Easy Polo Black Edition</p>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                        <?php
+                                                        for ($i = 0; $i < 3; $i++) {
+                                                            echo '<img src="images/catalogo/' . $productsRandom[$i]->getNombreImagen() . '" alt="Imagen" WIDTH=5 HEIGHT=50 />';
+                                                            ?>
+                                                            <h2>$<?php echo $productsRandom[$i]->getPrecio(); ?></h2>
+                                                            <p><?php echo $productsRandom[$i]->getNombre(); ?></p>
+                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                        <?php } ?>
                                                     </div>
 
                                                 </div>
@@ -227,38 +206,15 @@
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <img src="images/home/recommend1.jpg" alt="" />
-                                                        <h2>$56</h2>
-                                                        <p>Easy Polo Black Edition</p>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                        <?php
+                                                        for ($i = 3; $i < count($productsRandom); $i++) {
+                                                            echo '<img src="images/catalogo/' . $productsRandom[$i]->getNombreImagen() . '" alt="Imagen" WIDTH=5 HEIGHT=50 />';
+                                                            ?>
+                                                            <h2>$<?php echo $productsRandom[$i]->getPrecio(); ?></h2>
+                                                            <p><?php echo $productsRandom[$i]->getNombre(); ?></p>
+                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                        <?php } ?>
                                                     </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <img src="images/home/recommend2.jpg" alt="" />
-                                                        <h2>$56</h2>
-                                                        <p>Easy Polo Black Edition</p>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <img src="images/home/recommend3.jpg" alt="" />
-                                                        <h2>$56</h2>
-                                                        <p>Easy Polo Black Edition</p>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
-                                                    </div>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -272,7 +228,6 @@
                                 </a>			
                             </div>
                         </div><!--/recommended_items-->
-
                     </div>
                 </div>
             </div>
