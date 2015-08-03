@@ -69,4 +69,12 @@ class BodyBean {
         $this->precioTotalProducto = $precioTotalProducto;
     }
 
+    public function toString() {
+        return $this->referencia . " - " .
+                $this->nombre . " - " .
+                $this->precio . " - " .
+                $this->cantidadProducto . " - " .
+                $this->precioTotalProducto;
+    }
+
 }
