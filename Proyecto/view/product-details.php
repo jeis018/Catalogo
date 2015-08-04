@@ -80,8 +80,8 @@ $product = $productIns->getProductById($idProd);
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.php" class="active">Inicio</a></li>
-                                    <li><a href="shop.php?indicator=0" >Productos</a></li>
+                                    <li><a href="index.php">Inicio</a></li>
+                                    <li><a href="shop.php?indicator=0" class="active">Productos</a></li>
                                     <li><a href="contact-us.php">Contáctenos</a></li>
                                     <?php
                                     if (isset($_SESSION["userType"])) {

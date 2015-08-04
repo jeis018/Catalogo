@@ -71,7 +71,7 @@
                             </div>
                             <div class="mainmenu pull-left">
                                 <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.php" class="active">Inicio</a></li>
+                                    <li><a href="index.php">Inicio</a></li>
                                     <li><a href="shop.php?indicator=0" >Productos</a></li>
                                     <li><a href="contact-us.php">Contáctenos</a></li>
                                     <?php
@@ -79,7 +79,7 @@
                                         $userType = $_SESSION["userType"];
                                         if ($userType == 'A') {
                                             echo
-                                            '<li class = "dropdown"><a href = "#">Administración<i class = "fa fa-angle-down"></i></a>
+                                            '<li class = "dropdown"><a href = "#">Administración<i class="fa fa-angle-down active"></i></a>
                                             <ul role = "menu" class = "sub-menu">
                                             <li><a href = "orders.php">Ordenes de Compra</a></li>
                                             <li><a href = "administration.php">Agregar Productos</a></li>

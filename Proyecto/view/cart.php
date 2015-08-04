@@ -1,15 +1,38 @@
 <?php
 session_start();
+require_once ('../model/cart/Cart.php');
+$cart = new Cart();
 if (isset($_SESSION["logedOn"])) {
     $logedOn = $_SESSION["logedOn"];
     if ($logedOn == FALSE) {
         echo "<script type=\"text/javascript\">alert('Por favor inicie sesión para adicionar productos al carrito.!'); javascript:window.history.back();</script>";
+    } else {
+        if (isset($_GET["idProducto"])) {
+            $idProd = $_GET["idProducto"];
+        } else {
+            $idProd = 0;
+        }
+        if (isset($_GET["operation"])) {
+            $operation = $_GET["operation"];
+        } else {
+            $operation = 0;
+        }
+        $carProducts = $_SESSION["carProducts"];
+        if ($operation == 0) {
+            if ($cart->validateExistence($carProducts, $idProd) == 0) {
+                $carProducts[] = $idProd;
+                $_SESSION["carProducts"] = $carProducts;
+            }
+        } else {
+            for ($i = 0; $i < count($carProducts); $i++) {
+                echo $carProducts[$i] . '==' . $idProd . "?";
+                if ($carProducts[$i] == $idProd) {
+                    $carProducts[$i] = 0;
+                    break;
+                }
+            }
+        }
     }
-} else {
-    $idProd = $_GET["idProducto"];
-    $carProducts = $_SESSION["carProducts"];
-    $carProducts[] = $idProd;
-    $_SESSION["carProducts"] = $carProducts;
 }
 ?>
 
@@ -121,7 +144,6 @@ if (isset($_SESSION["logedOn"])) {
                     <table class="table table-condensed">
                         <thead>
                             <tr class="cart_menu">
-                                <td class="image">Producto</td>
                                 <td class="description">Descripción</td>
                                 <td class="price">Precio</td>
                                 <td class="quantity">Cantidad</td>
@@ -130,82 +152,43 @@ if (isset($_SESSION["logedOn"])) {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="cart_product">
-                                    <a href=""><img src="images/cart/one.png" alt=""></a>
-                                </td>
-                                <td class="cart_description">
-                                    <h4><a href="">Colorblock Scuba</a></h4>
-                                    <p>Web ID: 1089772</p>
-                                </td>
-                                <td class="cart_price">
-                                    <p>$59</p>
-                                </td>
-                                <td class="cart_quantity">
-                                    <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href=""> + </a>
-                                        <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                        <a class="cart_quantity_down" href=""> - </a>
-                                    </div>
-                                </td>
-                                <td class="cart_total">
-                                    <p class="cart_total_price">$59</p>
-                                </td>
-                                <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td class="cart_product">
-                                    <a href=""><img src="images/cart/two.png" alt=""></a>
-                                </td>
-                                <td class="cart_description">
-                                    <h4><a href="">Colorblock Scuba</a></h4>
-                                    <p>Web ID: 1089772</p>
-                                </td>
-                                <td class="cart_price">
-                                    <p>$59</p>
-                                </td>
-                                <td class="cart_quantity">
-                                    <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href=""> + </a>
-                                        <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                        <a class="cart_quantity_down" href=""> - </a>
-                                    </div>
-                                </td>
-                                <td class="cart_total">
-                                    <p class="cart_total_price">$59</p>
-                                </td>
-                                <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="cart_product">
-                                    <a href=""><img src="images/cart/three.png" alt=""></a>
-                                </td>
-                                <td class="cart_description">
-                                    <h4><a href="">Colorblock Scuba</a></h4>
-                                    <p>Web ID: 1089772</p>
-                                </td>
-                                <td class="cart_price">
-                                    <p>$59</p>
-                                </td>
-                                <td class="cart_quantity">
-                                    <div class="cart_quantity_button">
-                                        <a class="cart_quantity_up" href=""> + </a>
-                                        <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                        <a class="cart_quantity_down" href=""> - </a>
-                                    </div>
-                                </td>
-                                <td class="cart_total">
-                                    <p class="cart_total_price">$59</p>
-                                </td>
-                                <td class="cart_delete">
-                                    <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
+                            <?php
+                            if (isset($carProducts)) {
+                                require_once ('../model/products/Products.php');
+                                $productMaster = new Products();
+                                $totalOrder = 0;
+                                for ($i = 0; $i < count($carProducts); $i++) {
+                                    if ($carProducts[$i] != 0) {
+                                        $product = $productMaster->getProductById($carProducts[$i]);
+                                        ?>
+                                        <tr>
+                                            <td class="cart_description">
+                                                <h4><a href=""><?php echo $product->getNombre() . ' ' . $product->getDescripcion(); ?></a></h4>
+                                                <p>Referencia: <?php echo $product->getReferencia(); ?></p>
+                                            </td>
+                                            <td class="cart_price">
+                                                <p>$<?php echo $product->getPrecio(); ?></p>
+                                            </td>
+                                            <td class="cart_quantity">
+                                                <div class="cart_quantity_button">
+                                                    <a class="cart_quantity_up" href=""> + </a>
+                                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                                    <a class="cart_quantity_down" href=""> - </a>
+                                                </div>
+                                            </td>
+                                            <td class="cart_total">
+                                                <p class="cart_total_price">$<?php echo $product->getPrecio(); ?></p>
+                                            </td>
+                                            <td class="cart_delete">
+                                                <?php echo '<a class="cart_quantity_delete" href="cart.php?idProducto=' . $product->getIdProducto() . '&operation=1"><i class="fa fa-times"></i></a>'; ?>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                        $totalOrder+=$product->getPrecio();
+                                    }
+                                }
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -225,10 +208,14 @@ if (isset($_SESSION["logedOn"])) {
                     <div class="col-sm-6">
                         <div class="total_area">
                             <ul>
-                                <li>Subtotal de productos en el carrito<span>$59</span></li>
-                                <li>Iva <span>$2</span></li>
-                                <li>Costos de entrega<span>Free</span></li>
-                                <li>Total <span>$61</span></li>
+                                <?php
+                                $iva = ($totalOrder * 0.16);
+                                $subTotal = $totalOrder - $iva;
+                                ?>
+                                <li>Subtotal de productos en el carrito<span>$<?php echo $subTotal; ?></span></li>
+                                <li>Iva <span>$<?php echo $iva; ?></span></li>
+                                <li>Costos de entrega<span>Gratis</span></li>
+                                <li>Total <span>$<?php echo $totalOrder; ?></span></li>
                             </ul>
                             <a class="btn btn-default update" href="">Cotización</a>
                             <a class="btn btn-default check_out" href="">Orden de compra</a>
@@ -319,7 +306,6 @@ if (isset($_SESSION["logedOn"])) {
                 </div>
             </div>
         </footer><!--/Footer-->
-
 
 
         <script src="js/jquery.js"></script>
