@@ -227,16 +227,16 @@ $zebraPage->records_per_page($productsPerPage);
                                                     echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                     echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
                                                     echo '</tr>';
+                                                    echo '<a href="' . $regProducts[$i]["idProducto"] . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
                                                     ?>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
                                                 </div>
                                                 <div class="product-overlay">
                                                     <div class="overlay-content">
                                                         <?php
                                                         echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                         echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
+                                                        echo '<a href="cart.php?idProducto=' . $regProducts[$i]["idProducto"] . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
                                                         ?>
-                                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
                                                     </div>
                                                 </div>
                                             </div>

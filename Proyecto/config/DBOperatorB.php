@@ -12,7 +12,7 @@ class DBOperatorB {
      * @return type
      */
     public static function conn() {
-        $conexion = mysql_connect("localhost", "root", "123456");
+        $conexion = mysql_connect("localhost", "root", "");
 //        $conexion = mysql_connect("localhost", "root", "");
         mysql_query("SET NAMES 'utf8");
         mysql_select_db("catalogo");

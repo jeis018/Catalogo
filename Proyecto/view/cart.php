@@ -1,4 +1,17 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if (isset($_SESSION["logedOn"])) {
+    $logedOn = $_SESSION["logedOn"];
+    if ($logedOn == FALSE) {
+        echo "<script type=\"text/javascript\">alert('Por favor inicie sesión para adicionar productos al carrito.!'); javascript:window.history.back();</script>";
+    }
+} else {
+    $idProd = $_GET["idProducto"];
+    $carProducts = $_SESSION["carProducts"];
+    $carProducts[] = $idProd;
+    $_SESSION["carProducts"] = $carProducts;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

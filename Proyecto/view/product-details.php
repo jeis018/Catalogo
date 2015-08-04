@@ -209,13 +209,16 @@ $product = $productIns->getProductById($idProd);
                                     echo '<p>Referencia: ' . $product->getReferencia() . '</p>';
                                     echo '<span>';
                                     echo '<span>$' . $product->getPrecio() . '</span>';
-                                    echo '<label>Cantidad: </label>';
-                                    echo '<input type = "text" value = "1" />';
-                                    echo '<button type = "button" class = "btn btn-fefault cart">';
-                                    echo '<i class = "fa fa-shopping-cart"></i>';
-                                    echo ' Agregar al carrito';
-                                    echo '</button>';
                                     echo '</span>';
+                                    echo '<form action="../controller/CCart.pgp" method="POST">
+                                        <label>Cantidad: </label>
+                                        <input type="text" name="cant" value="1" />
+                                        <input type="hidden" name="idProducto" value=" ' . $product->getidProducto() . ' "/>
+                                        <button type = "button" name="btnAdd" class = "btn btn-fefault cart">
+                                            <i class = "fa fa-shopping-cart"></i>
+                                            Agregar al carrito
+                                        </button>
+                                    </form>';
                                     echo '<p><b>Presentación: </b>' . $product->getUnidadVenta() . '</p>';
                                     ?>
                                 </div><!--/product-information-->

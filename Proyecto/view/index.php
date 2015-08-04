@@ -172,9 +172,20 @@ $productsRandom = $randomProduct->getRandomProducts();
                 <div class="row">
                     <div id="gmap" class="contact-map">
                         <h2 class="title text-center">Conózcanos</h2>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus, ex a convallis mollis, metus ligula semper sem, nec accumsan dui eros a augue. Nulla facilisi. Vivamus mauris tellus, tincidunt et tortor vitae, dictum elementum tortor. Etiam quam tellus, pretium id est sed, congue dapibus mi. Nunc id nisl eros. Aliquam neque nulla, bibendum tempus mi eget, sodales consectetur tellus. Quisque suscipit malesuada tempor.
-
-                        Pellentesque ultrices magna leo, id suscipit orci dapibus non. Vestibulum ultrices velit at ligula finibus consectetur. Cras ex magna, aliquam at lobortis ac, rutrum ac enim. Praesent quis dolor vitae enim viverra malesuada lobortis a metus. Maecenas vehicula erat magna, venenatis convallis orci suscipit a. Cras elementum et augue dictum imperdiet. Nunc vel quam molestie, facilisis quam ut, consectetur diam. Vivamus vulputate elit ut nunc molestie, vitae tristique urna tempus. Nam vitae tellus non orci aliquet pellentesque.
+                        Bienvenido a <b>Madessa.com</b>, un sitio web para la compra de productos escolares. En este sitio podrá encontrar los productos de la 
+                        mejor calidad a los mejores precios. En la sección <b>Productos</b>, encontrará un catálogo detallado de los productos que ofrecemos. 
+                        En este catálogo podrá realizar la consulta detallada de cada producto, y consultar por categoría los mismos. 
+                        Realizar una compra, consiste en tres sencillos pasos.<br/><br/>
+                        <ol type=1>
+                            <li>Regístrese o inicie sesión en el sistema.</li><br/>
+                            <li>Consulte el o los productos que desea adquirir y para cada uno de ellos seleccione la opción: <b>Agregar al carrito</b>. 
+                                Cada vez que adicione un producto, podrá visualizar el listado de productos que actualmente tiene en el carrito.</li><br/>
+                            <li>Solicitar la orden de compra. Una vez que tenga en el carrito los productos que desea adquirir, revise la cantidad de cada uno, 
+                                para el pedido, y seleccione cualquiera de las dos opciones; <b>Cotización</b>, para descargar un archivo PDF, con la cotización 
+                                de los productos que se encuentran en el carrito de compras. <b>Orden de compra</b>, para descargar en un archivo PDF la factura 
+                                de la compra, y solicitar el despacho de la misma, que será enviada en los próximos dos días hábiles, teniendo en cuenta la información 
+                                proporcionada durante su registro en el sistema.</li><br/>
+                        </ol>
                     </div>
 
                     <div id="gmap">
@@ -193,7 +204,7 @@ $productsRandom = $randomProduct->getRandomProducts();
                                                             ?>
                                                             <h2>$<?php echo $productsRandom[$i]->getPrecio(); ?></h2>
                                                             <p><?php echo $productsRandom[$i]->getNombre(); ?></p>
-                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                            <?php echo '<a href="cart.php?idProducto=' . $productsRandom[$i]->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
                                                         <?php } ?>
                                                     </div>
 
@@ -212,7 +223,7 @@ $productsRandom = $randomProduct->getRandomProducts();
                                                             ?>
                                                             <h2>$<?php echo $productsRandom[$i]->getPrecio(); ?></h2>
                                                             <p><?php echo $productsRandom[$i]->getNombre(); ?></p>
-                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>
+                                                            <?php echo '<a href="cart.php?idProducto=' . $productsRandom[$i]->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
                                                         <?php } ?>
                                                     </div>
                                                 </div>
