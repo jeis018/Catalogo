@@ -79,7 +79,7 @@
                                         $userType = $_SESSION["userType"];
                                         if ($userType == 'A') {
                                             echo
-                                            '<li class = "dropdown"><a href = "#">Administración<i class = "fa fa-angle-down"></i></a>
+                                            '<li class = "dropdown"><a href = "#">Administración<i class = "fa fa-angle-down active"></i></a>
                                             <ul role = "menu" class = "sub-menu">
                                             <li><a href = "orders.php">Ordenes de Compra</a></li>
                                             <li><a href = "administration.php">Agregar Productos</a></li>
