@@ -3,7 +3,7 @@ session_start();
 
 require_once ('../model/products/Products.php');
 $randomProduct = new Products();
-$productsRandom = $randomProduct->getRandomProducts();
+
 ?>
 
 <!DOCTYPE html>
@@ -187,25 +187,31 @@ $productsRandom = $randomProduct->getRandomProducts();
                                 proporcionada durante su registro en el sistema.</li><br/>
                         </ol>
                     </div>
-
+                    
                     <div id="gmap">
                         <div class="features_items"><!--features_items-->
                             <h2 class="title text-center">Algunos productos</h2>
                             <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                                                           
                                 <div class="carousel-inner">
+                                    
                                     <div class="item active">	
                                         <div class="col-sm-4">
+                                  
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <?php
-                                                        for ($i = 0; $i < 3; $i++) {
-                                                            echo '<img src="images/catalogo/' . $productsRandom[$i]->getNombreImagen() . '" alt="Imagen" WIDTH=5 HEIGHT=50 />';
-                                                            ?>
-                                                            <h2>$<?php echo $productsRandom[$i]->getPrecio(); ?></h2>
-                                                            <p><?php echo $productsRandom[$i]->getNombre(); ?></p>
-                                                            <?php echo '<a href="cart.php?idProducto=' . $productsRandom[$i]->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
-                                                        <?php } ?>
+                                                        <?php 
+                                                            $total = "134"; // Numero total de imagenes 
+                                                            $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
+                                                            $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
+                                                            // De aqui para abajo no es necesario modificar nada    
+                                                            $random = mt_rand(1, $total);
+                                                            $products= $randomProduct->getProductById($random);
+                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=300>'; ?> 
+                                                            <?php echo $products->getNombre(); ?></p>
+                                                            <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                           
                                                     </div>
 
                                                 </div>
@@ -217,20 +223,46 @@ $productsRandom = $randomProduct->getRandomProducts();
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <?php
-                                                        for ($i = 3; $i < count($productsRandom); $i++) {
-                                                            echo '<img src="images/catalogo/' . $productsRandom[$i]->getNombreImagen() . '" alt="Imagen" WIDTH=5 HEIGHT=50 />';
-                                                            ?>
-                                                            <h2>$<?php echo $productsRandom[$i]->getPrecio(); ?></h2>
-                                                            <p><?php echo $productsRandom[$i]->getNombre(); ?></p>
-                                                            <?php echo '<a href="cart.php?idProducto=' . $productsRandom[$i]->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
-                                                        <?php } ?>
+                                                        <?php 
+                                                            $total = "134"; // Numero total de imagenes 
+                                                            $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
+                                                            $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
+                                                            // De aqui para abajo no es necesario modificar nada    
+                                                            $random = mt_rand(1, $total);
+                                                            $products= $randomProduct->getProductById($random);
+                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=300>'; ?> 
+                                                            <?php echo $products->getNombre(); ?></p>
+                                                            <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                           
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">	
+                                        <div class="col-sm-4">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <?php 
+                                                            $total = "134"; // Numero total de imagenes 
+                                                            $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
+                                                            $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
+                                                            // De aqui para abajo no es necesario modificar nada    
+                                                            $random = mt_rand(1, $total);
+                                                            $products= $randomProduct->getProductById($random);
+                                                           
+                                                           echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=300>'; ?> 
+                                                            <?php echo $products->getNombre(); ?></p>
+                                                            <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                           
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </center>
                                 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
                                     <i class="fa fa-angle-left"></i>
                                 </a>
@@ -240,6 +272,7 @@ $productsRandom = $randomProduct->getRandomProducts();
                             </div>
                         </div><!--/recommended_items-->
                     </div>
+                    </center>
                 </div>
             </div>
         </section>

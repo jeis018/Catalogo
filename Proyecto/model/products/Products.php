@@ -89,15 +89,6 @@ class Products {
         return $this->product;
     }
 
-    public function getRandomProducts() {
-        $randomProducts = array();
-        $totalRows = $this->totalRows(0);
-        for ($i = 0; $i < 6; $i++) {
-            $randomProducts[$i] = $this->getProductById(rand(1, $totalRows));
-        }
-        return $randomProducts;
-    }
-
 }
 
 ?>
