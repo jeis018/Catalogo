@@ -229,7 +229,7 @@ $product = $productIns->getProductById($idProd);
             </div>
         </section>
 
-        <footer id="footer"><!--Footer-->
+<!--        <footer id="footer">Footer
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
@@ -309,7 +309,13 @@ $product = $productIns->getProductById($idProd);
                     </div>
                 </div>
             </div>
-        </footer><!--/Footer-->
+        </footer>/Footer-->
+        
+        
+        <?php
+            require_once './footer.php';
+        ?>
+        
 
         <script src="js/jquery.js"></script>
         <script src="js/price-range.js"></script>

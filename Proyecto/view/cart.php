@@ -225,7 +225,7 @@ if (isset($_SESSION["logedOn"])) {
             </div>
         </section><!--/#do_action-->
 
-        <footer id="footer"><!--Footer-->
+<!--        <footer id="footer">Footer
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
@@ -305,7 +305,11 @@ if (isset($_SESSION["logedOn"])) {
                     </div>
                 </div>
             </div>
-        </footer><!--/Footer-->
+        </footer>/Footer-->
+        
+        <?php
+            require_once './footer.php';
+        ?>
 
 
         <script src="js/jquery.js"></script>

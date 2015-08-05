@@ -150,7 +150,7 @@
         </section><!--/form-->
 
 
-        <footer id="footer"><!--Footer-->
+<!--        <footer id="footer">Footer
             <div class="footer-top">
                 <div class="container">
                     <div class="row">
@@ -241,8 +241,12 @@
 //		}
 //	
             ?>
-        </footer><!--/Footer-->
+        </footer>/Footer-->
 
+
+        <?php
+            require_once './footer.php';
+        ?>
 
 
         <script src="js/jquery.js"></script>
