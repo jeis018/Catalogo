@@ -134,7 +134,6 @@ $randomProduct = new Products();
                                         <button type="button" class="btn btn-default get">Get it now</button>
                                     </div>
                                     <div class="col-sm-6">
-                                        <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
                                         <img src="images/home/pricing.png"  class="pricing" alt="" />
                                     </div>
                                 </div>
