@@ -12,9 +12,9 @@ $user = $login->validateLogin();
 if ($user->getCodigoRespuesta() == '00') {
     $_SESSION["logedOn"] = TRUE;
     if ($user->getRol() == 'A') {
-        $_SESSION['userType'] = 'A';
+        $_SESSION['user'] = array($user->getIdUsuario(), 'A');
     } else {
-        $_SESSION['userType'] = 'I';
+        $_SESSION['user'] = array($user->getIdUsuario(), 'I');
     }
     echo"<script type=\"text/javascript\">alert('Bienvenido de nuevo " . $username . "'); window.location='../view/index.php';</script>";
 } else {

@@ -8,17 +8,25 @@
  */
 class User {
 
+    private $idUsuario;
     private $codigoRespuesta;
     private $rol;
 
     /**
-     * Constructtor por defecto de la aplicación
+     * 
+     * Constructor por defecto de la clase
+     * @param type $idUsuario
      * @param type $codigoRespuesta
      * @param type $rol
      */
-    function __construct($codigoRespuesta, $rol) {
+    function __construct($idUsuario, $codigoRespuesta, $rol) {
+        $this->idUsuario = $idUsuario;
         $this->codigoRespuesta = $codigoRespuesta;
         $this->rol = $rol;
+    }
+
+    function getIdUsuario() {
+        return $this->idUsuario;
     }
 
     function getCodigoRespuesta() {
@@ -27,6 +35,10 @@ class User {
 
     function getRol() {
         return $this->rol;
+    }
+
+    function setIdUsuario($idUsuario) {
+        $this->idUsuario = $idUsuario;
     }
 
     function setCodigoRespuesta($codigoRespuesta) {

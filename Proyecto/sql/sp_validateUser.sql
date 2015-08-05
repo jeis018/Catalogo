@@ -27,13 +27,14 @@ BEGIN
    
     DECLARE _indicadorExistencia INT DEFAULT 0;
     DECLARE _Rol VARCHAR(1) DEFAULT NULL;
+    DECLARE _idUsuario INT DEFAULT 0;
 
     IF _indicadorOperacion = 0 THEN
         SET _indicadorExistencia = (SELECT COUNT(*) FROM Usuario WHERE Email = _email);
         IF _indicadorExistencia = 0 THEN
-            SELECT '00' AS 'CodigoRespuesta', '-' AS 'Rol';
+            SELECT 0 AS 'idUsuario', '00' AS 'CodigoRespuesta', '-' AS 'Rol';
         ELSE
-            SELECT '10' AS 'CodigoRespuesta', '-' AS 'Rol';
+            SELECT 0 AS 'idUsuario', '10' AS 'CodigoRespuesta', '-' AS 'Rol';
         END IF;
     END IF;
 
@@ -41,9 +42,10 @@ BEGIN
         SET _indicadorExistencia = (SELECT COUNT(*) FROM Usuario WHERE Email = _email AND Contrasenna = _contrasenna);
         IF _indicadorExistencia <> 0 THEN
             SET _Rol = (SELECT Rol FROM Usuario WHERE Email = _email AND Contrasenna = _contrasenna);
-            SELECT '00' AS 'CodigoRespuesta', _Rol AS 'Rol'; 
+            SET _idUsuario = (SELECT idUsuario FROM Usuario WHERE Email = _email AND Contrasenna = _contrasenna);
+            SELECT _idUsuario AS 'idUsuario', '00' AS 'CodigoRespuesta', _Rol AS 'Rol'; 
         ELSE
-            SELECT '20' AS 'CodigoRespuesta', '-' AS 'Rol';
+            SELECT 0 AS 'idUsuario', '20' AS 'CodigoRespuesta', '-' AS 'Rol';
         END IF;
     END IF;
 

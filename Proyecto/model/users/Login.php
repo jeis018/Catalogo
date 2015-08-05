@@ -27,6 +27,11 @@ class Login {
         $this->dbOperator = new DBOperatorB();
     }
 
+    /*
+     * Valida la existencia del usuario en la base de datos y que las credenciales
+     * de inicio de sesión son correctas.
+     */
+
     public function validateLogin() {
         $sql = "CALL validateUser('" . $this->username . "', '" . $this->pass . "', 1" . ")";
         $userValidate = mysql_query($sql, $this->dbOperator->conn());
@@ -38,7 +43,8 @@ class Login {
         if (isset($arrAux)) {
             $responseCode = $arrAux[0]["CodigoRespuesta"];
             $rol = $arrAux[0]["Rol"];
-            $this->user = new User($responseCode, $rol);
+            $idUsuario = $arrAux[0]["idUsuario"];
+            $this->user = new User($idUsuario, $responseCode, $rol);
         }
         return $this->user;
     }

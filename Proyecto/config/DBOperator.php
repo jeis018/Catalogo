@@ -6,7 +6,7 @@ class PDOConfig {
     private $host = 'localhost';
     private $db_name = 'Catalogo';
     private $user = 'root';
-    private $pass = '123456';
+    private $pass = '';
     private $assoc = PDO::FETCH_ASSOC;
 
     private function __construct() {

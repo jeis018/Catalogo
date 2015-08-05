@@ -3,7 +3,6 @@ session_start();
 
 require_once ('../model/products/Products.php');
 $randomProduct = new Products();
-
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@ $randomProduct = new Products();
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
-        
+
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
@@ -33,14 +32,14 @@ $randomProduct = new Products();
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <link> 
-        <script type="text/javascript">   
+        <script type="text/javascript">
 //        $(document).ready(function(){
 //        setInterval(cargar,8000);
 //        });
 
-        function cargar(){
-        $("#slidercarga").load("index.php");
-        }
+            function cargar() {
+                $("#slidercarga").load("index.php");
+            }
         </script>
     </head><!--/head-->
 
@@ -59,13 +58,13 @@ $randomProduct = new Products();
                                 <ul class="nav navbar-nav">
                                     <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
                                     <?php
-                                   // if (isset($_SESSION["logedOn"])) {
-                                        $logedOn = $_SESSION["logedOn"];
-                                        if ($logedOn == FALSE) {
-                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
-                                        } else {
-                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
-                                        }
+                                    // if (isset($_SESSION["logedOn"])) {
+                                    $logedOn = $_SESSION["logedOn"];
+                                    if ($logedOn == FALSE) {
+                                        echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
+                                    } else {
+                                        echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
+                                    }
                                     //}
                                     ?>
                                 </ul>
@@ -93,8 +92,10 @@ $randomProduct = new Products();
                                     <li><a href="shop.php?indicator=0" >Productos</a></li>
                                     <li><a href="contact-us.php">Contáctenos</a></li>
                                     <?php
-                                    if (isset($_SESSION["userType"])) {
-                                        $userType = $_SESSION["userType"];
+                                    if (isset($_SESSION["user"])) {
+                                        $user = $_SESSION["user"];
+                                        $userType = $user[1];
+
                                         if ($userType == 'A') {
                                             echo
                                             '<li class = "dropdown"><a href = "#">Administración<i class = "fa fa-angle-down"></i></a>
@@ -198,31 +199,32 @@ $randomProduct = new Products();
                                 proporcionada durante su registro en el sistema.</li><br/>
                         </ol>
                     </div>
-                    
+
                     <div id="gmap">
                         <div class="features_items"><!--features_items-->
                             <h2 class="title text-center">Algunos productos</h2>
                             <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-                                                           
+
                                 <div class="carousel-inner" style="alignment-adjust: central; margin-left: 350px;">
-                                    
+
                                     <div class="item active">	
                                         <div class="col-sm-4">
-                                  
+
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <?php 
-                                                            $total = "134"; // Numero total de imagenes 
-                                                            $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
-                                                            $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
-                                                            // De aqui para abajo no es necesario modificar nada    
-                                                            $random = mt_rand(1, $total);
-                                                            $products= $randomProduct->getProductById($random);
-                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=350>'; ?> 
-                                                            <?php echo $products->getNombre(); ?></p>
-                                                            <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
-                                                           
+                                                        <?php
+                                                        $total = "134"; // Numero total de imagenes 
+                                                        $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
+                                                        $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
+                                                        // De aqui para abajo no es necesario modificar nada    
+                                                        $random = mt_rand(1, $total);
+                                                        $products = $randomProduct->getProductById($random);
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=130 HEIGHT=350>';
+                                                        ?> 
+                                                        <?php echo $products->getNombre(); ?></p>
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+
                                                     </div>
 
                                                 </div>
@@ -234,17 +236,18 @@ $randomProduct = new Products();
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <?php 
-                                                            $total = "134"; // Numero total de imagenes 
-                                                            $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
-                                                            $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
-                                                            // De aqui para abajo no es necesario modificar nada    
-                                                            $random = mt_rand(1, $total);
-                                                            $products= $randomProduct->getProductById($random);
-                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=350>'; ?> 
-                                                            <?php echo $products->getNombre(); ?></p>
-                                                            <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
-                                                           
+                                                        <?php
+                                                        $total = "134"; // Numero total de imagenes 
+                                                        $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
+                                                        $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
+                                                        // De aqui para abajo no es necesario modificar nada    
+                                                        $random = mt_rand(1, $total);
+                                                        $products = $randomProduct->getProductById($random);
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=130 HEIGHT=350>';
+                                                        ?> 
+                                                        <?php echo $products->getNombre(); ?></p>
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,26 +258,27 @@ $randomProduct = new Products();
                                             <div class="product-image-wrapper">
                                                 <div class="single-products">
                                                     <div class="productinfo text-center">
-                                                        <?php 
-                                                            $total = "134"; // Numero total de imagenes 
-                                                            $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
-                                                            $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
-                                                            // De aqui para abajo no es necesario modificar nada    
-                                                            $random = mt_rand(1, $total);
-                                                            $products= $randomProduct->getProductById($random);
-                                                           
-                                                           echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=350>'; ?> 
-                                                            <?php echo $products->getNombre(); ?></p>
-                                                            <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
-                                                           
+                                                        <?php
+                                                        $total = "134"; // Numero total de imagenes 
+                                                        $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
+                                                        $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
+                                                        // De aqui para abajo no es necesario modificar nada    
+                                                        $random = mt_rand(1, $total);
+                                                        $products = $randomProduct->getProductById($random);
+
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=130 HEIGHT=350>';
+                                                        ?> 
+                                                        <?php echo $products->getNombre(); ?></p>
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </center>
-                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev" onclick="javascript:cargar();">
+                                </center>
+                                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev" onclick="javascript:cargar();">
                                     <i class="fa fa-angle-left"></i>
                                 </a>
                                 <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next" onclick="javascript:cargar();">
@@ -291,7 +295,7 @@ $randomProduct = new Products();
             ?>
         </section>
 
-        
+
 
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>

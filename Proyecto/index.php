@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-$_SESSION["userType"] = "I";
+$_SESSION["user"] = array(0, "I");
 $_SESSION["logedOn"] = FALSE;
 $carProducts = array();
 $_SESSION["carProducts"] = $carProducts;

@@ -5,7 +5,7 @@
  *
  * @author hespitia
  */
-class Quotes {
+class QuotesReport {
 
     /**
      * Método que permite realizar la generación del reporte en excel de las ordenes de compra.

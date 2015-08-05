@@ -9,13 +9,15 @@ DROP PROCEDURE IF EXISTS insertProductDetail;
 
 DELIMITER $$
 CREATE PROCEDURE insertProductDetail(
-	IN _idPedido INT, 
-	IN _idProducto INT
+    IN _idPedido INT, 
+    IN _idProducto INT,
+    IN _cantidad INT
+        
 )
 BEGIN
    
-	INSERT INTO DetalleProducto (idPedido, idProducto)
-	VALUES (_idPedido, _idProducto);
+	INSERT INTO DetallePedido (idPedido, idProducto, Cantidad)
+	VALUES (_idPedido, _idProducto, _cantidad);
 
 END;
  
