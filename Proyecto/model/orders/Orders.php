@@ -1,7 +1,9 @@
 <?php
 
-require_once ('../config/DBOperator.php');
-require_once ('../reports/OrdersReport.php');
+require_once '../config/DBOperator.php';
+//require_once '../model/reports/OrdersReport.php';
+require_once '../model/reports/OrdersReport.php';
+
 $db = new DBDriver(PDOConfig::getInstance());
 
 /**
@@ -31,12 +33,12 @@ class Orders {
      */
     function cambiarEstado($id) {
         global $db;
-        $query = 'CALL updatePurchaseOrder ()';
+        $query = 'CALL updatePurchaseOrder(?)';
         $datos = array($id);
-        $respuesta = $db->set($query, $datos);
+        $db->set($query, $datos);
 
-        $reportExcel = new OrdersReport();
-        $reportExcel->generateReport($id);
+        //$reportExcel = new OrdersReport();
+        //$reportExcel->generateReport($id);
 
         return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
     }

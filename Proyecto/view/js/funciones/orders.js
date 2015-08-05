@@ -8,9 +8,9 @@ function main(){
         peticion += JSON.stringify({
             accion : 'buscar'
         });
-        return peticion;
-    },function(respuesta){      
-        respuesta = JSON.parse(respuesta);      //console.log('ordenes: ', respuesta)
+        return peticion;    console.log(peticion)
+    },function(respuesta){      console.log('ordenes: ', respuesta)
+        respuesta = JSON.parse(respuesta);      
         cargarPedidos(respuesta);        
     });   
 }
@@ -37,7 +37,7 @@ function cambiarEstadoPedido(id){
             accion : 'cambiar estado',
             id : id
         });
-        return peticion;
+        return peticion;            
     },function(respuesta){      
         respuesta = JSON.parse(respuesta);          console.log('ordenes cambio estado: ', respuesta);
         

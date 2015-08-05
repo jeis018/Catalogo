@@ -7,7 +7,7 @@
  */
 class Cart {
 
-    public function validateExistence($carProducts, $idProduct) {
+    function validateExistence($carProducts, $idProduct) {
         for ($i = 0; $i < count($carProducts); $i++) {
             if ($carProducts[$i] == $idProduct) {
                 return 1;
