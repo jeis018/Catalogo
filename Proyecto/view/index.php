@@ -21,6 +21,7 @@ $randomProduct = new Products();
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+        
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
@@ -30,9 +31,20 @@ $randomProduct = new Products();
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link> 
+        <script type="text/javascript">   
+//        $(document).ready(function(){
+//        setInterval(cargar,8000);
+//        });
+
+        function cargar(){
+        $("#slidercarga").load("index.php");
+        }
+        </script>
     </head><!--/head-->
 
-    <body>
+    <body id="slidercarga">
         <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
                 <div class="container">
@@ -113,7 +125,7 @@ $randomProduct = new Products();
                                 <li data-target="#slider-carousel" data-slide-to="2"></li>
                             </ol>
 
-                            <div class="carousel-inner">
+                            <div class="carousel-inner" >
                                 <div class="item active">
                                     <div class="col-sm-6">
                                         <h1><span>E</span>-SHOPPER</h1>
@@ -193,7 +205,7 @@ $randomProduct = new Products();
                             <h2 class="title text-center">Algunos productos</h2>
                             <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
                                                            
-                                <div class="carousel-inner">
+                                <div class="carousel-inner" style="alignment-adjust: central; margin-left: 350px;">
                                     
                                     <div class="item active">	
                                         <div class="col-sm-4">
@@ -208,7 +220,7 @@ $randomProduct = new Products();
                                                             // De aqui para abajo no es necesario modificar nada    
                                                             $random = mt_rand(1, $total);
                                                             $products= $randomProduct->getProductById($random);
-                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=300>'; ?> 
+                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=350>'; ?> 
                                                             <?php echo $products->getNombre(); ?></p>
                                                             <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
                                                            
@@ -230,7 +242,7 @@ $randomProduct = new Products();
                                                             // De aqui para abajo no es necesario modificar nada    
                                                             $random = mt_rand(1, $total);
                                                             $products= $randomProduct->getProductById($random);
-                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=300>'; ?> 
+                                                            echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=350>'; ?> 
                                                             <?php echo $products->getNombre(); ?></p>
                                                             <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
                                                            
@@ -252,7 +264,7 @@ $randomProduct = new Products();
                                                             $random = mt_rand(1, $total);
                                                             $products= $randomProduct->getProductById($random);
                                                            
-                                                           echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=300>'; ?> 
+                                                           echo '<img src="images/catalogo/'.$products->getNombreImagen().'" border="0" WIDTH=130 HEIGHT=350>'; ?> 
                                                             <?php echo $products->getNombre(); ?></p>
                                                             <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
                                                            
@@ -263,10 +275,10 @@ $randomProduct = new Products();
                                     </div>
                                 </div>
                             </center>
-                                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev" onclick="javascript:cargar();">
                                     <i class="fa fa-angle-left"></i>
                                 </a>
-                                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next" onclick="javascript:cargar();">
                                     <i class="fa fa-angle-right"></i>
                                 </a>			
                             </div>
@@ -275,11 +287,12 @@ $randomProduct = new Products();
                     </center>
                 </div>
             </div>
+            <?php
+            require_once './footer.php';
+            ?>
         </section>
 
-        <?php
-            require_once './footer.php';
-        ?>
+        
 
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
