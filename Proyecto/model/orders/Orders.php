@@ -35,12 +35,14 @@ class Orders {
         global $db;
         $query = 'CALL updatePurchaseOrder(?)';
         $datos = array($id);
-        $db->set($query, $datos);
+       // $db->set($query, $datos);
 
         $reportExcel = new OrdersReport();
-        $reportExcel->generateReport($id);
+        $reportExcel->generateReport(intval($id));
+        
+        return $id;
 
-        return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
+       // return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
     }
 
     /**

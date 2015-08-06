@@ -1,16 +1,16 @@
 <?php
 
 require_once ('IReport.php');
-/*require_once ('../../config/DBOperatorB.php');
-require_once ('../bean/HeaderBean.php');
-require_once ('../bean/BodyBean.php');
-require_once ('../../lib/PHPExcel.php');
-require_once ('../../lib/PHPExcel/IOFactory.php');*/
-require_once ('../config/DBOperatorB.php');
-require_once ('../model/bean/HeaderBean.php');
-require_once ('../model/bean/BodyBean.php');
-require_once ('../lib/PHPExcel.php');
-require_once ('../lib/PHPExcel/IOFactory.php');
+ require_once ('../../config/DBOperatorB.php');
+  require_once ('../bean/HeaderBean.php');
+  require_once ('../bean/BodyBean.php');
+  require_once ('../../lib/PHPExcel.php');
+  require_once ('../../lib/PHPExcel/IOFactory.php'); 
+//require_once ('../config/DBOperatorB.php');
+//require_once ('../model/bean/HeaderBean.php');
+//require_once ('../model/bean/BodyBean.php');
+//require_once ('../lib/PHPExcel.php');
+//require_once ('../lib/PHPExcel/IOFactory.php');
 
 /**
  * Clase que permite realizar la generación del reporte en xls de las Ordenes de compra.
@@ -44,14 +44,17 @@ class OrdersReport implements IReport {
      * @return type
      */
     public function getFileNamePath() {
-        $directorio = opendir("./");
-        while ($archivo = readdir($directorio)) {
-            $name = "PlantillaOrden.xls";
-            $resultado = strpos(realpath($archivo), $name);
-            if ($resultado != FALSE) {
-                return realpath($archivo);
-            }
-        }
+//        $directorio = opendir("./");
+//        while ($archivo = readdir($directorio)) {
+//            $name = "PlantillaOrden.xls";
+//            $resultado = strpos(realpath($archivo), $name);
+//            if ($resultado != FALSE) {
+//                return realpath($archivo);
+//            }
+//        }
+        define('RAIZ', $_SERVER['DOCUMENT_ROOT']);
+        $directorio = RAIZ . '/Catalogo/Catalogo/Proyecto/model/reports/PlantillaOrden.xlsx';
+        return $directorio;
     }
 
     /**
@@ -111,7 +114,7 @@ class OrdersReport implements IReport {
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="' . $fileReport . '"');
         header('Cache-Control: max-age=0');
-        
+
         $writerExcel = PHPExcel_IOFactory::createWriter($readerExcel, 'Excel5');
         $writerExcel->save('php://output');
     }

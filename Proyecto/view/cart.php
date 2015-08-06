@@ -137,7 +137,7 @@ if (isset($_SESSION["logedOn"])) {
             <div class="container">
                 <div class="breadcrumbs">
                     <ol class="breadcrumb">
-                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.php">Inicio</a></li>
                         <li class="active">Carrito</li>
                     </ol>
                 </div>

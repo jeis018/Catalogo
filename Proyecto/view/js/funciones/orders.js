@@ -22,7 +22,7 @@ function cargarPedidos(datos){
     
     
     $('#lista tr button[data-role="atender"]').click(function(){
-        console.log('id pedido: ', $(this).attr('data-id'));
+        //console.log('id pedido: ', $(this).attr('data-id'));
         var id = $(this).attr('data-id');
         cambiarEstadoPedido(id);
     });
@@ -39,7 +39,6 @@ function cambiarEstadoPedido(id){
         });
         return peticion;            
     },function(respuesta){      
-        respuesta = JSON.parse(respuesta);          console.log('ordenes cambio estado: ', respuesta);
-        
+        console.log('ordenes cambio estado: ', respuesta); 
     });
 }
