@@ -223,9 +223,8 @@ if (isset($_SESSION["logedOn"])) {
                             for ($i = 0; $i < count($carProducts); $i++) {
                                 $productsString .= $carProducts[$i] . "-";
                             }
-
                             echo '<a class="btn btn-default update" href="../controller/CCart.php?orderType=1&totalPedido=' . $totalOrder . '&products=' . $productsString . '">Cotización</a>';
-                            echo '<a class="btn btn-default check_out" href="../controller/CCart.php?orderType=2&totalPedido="' . $totalOrder . '&products=' . $productsString . '">Orden de compra</a>';
+                            echo '<a class="btn btn-default check_out" href="../controller/CCart.php?orderType=2&totalPedido=' . $totalOrder . '&products=' . $productsString . '">Orden de compra</a>';
                             ?>
                         </div>
                     </div>
