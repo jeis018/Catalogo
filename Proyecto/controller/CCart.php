@@ -18,13 +18,14 @@ $resultInsert = $order->insertOrder($user, $totalOrder, $tipoPedido);
 if ($resultInsert != null) {
     $products = explode("-", $productsAux);
     $order->insertDetailProduct($products, $resultInsert);
-//    $_GET["cartProducts"] = $products;
     if ($orderType == 1) {
         $quote = new QuotesReport($resultInsert);
     } elseif ($orderType == 2) {
         $order = new OrdersReport();
         $order->generateReport($resultInsert);
     }
+    $carProducts = array();
+    $_SESSION["carProducts"] = $carProducts;
     echo "<script type=\"text/javascript\">alert('Se ha procesado su pedido.'); window.location='../view/index.php';</script>";
 } else {
     
