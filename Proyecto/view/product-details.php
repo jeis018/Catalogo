@@ -33,7 +33,22 @@ $product = $productIns->getProductById($idProd);
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     </head><!--/head-->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery.imageLens.js"></script>
+	<script type="text/javascript" language="javascript">
+		$(function () {	
+			$("#detalleimg").imageLens({ lensSize: 200 });
+		});	
+	</script>
 
+	</script>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>	
+    <script type="text/javascript">	
+        try{var pageTracker = _gat._getTracker("UA-2030729-5");pageTracker._initData();pageTracker._trackPageview();}catch(ex){}
+    </script>
+ 
     <body>
         <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
@@ -196,11 +211,10 @@ $product = $productIns->getProductById($idProd);
                             <div class="col-sm-5">
                                 <div class="view-product">
                                     <?php
-                                    echo '<img src="images/catalogo/' . $product->getNombreImagen() . '" alt="" />';
+                                    echo '<img id="detalleimg" src="images/catalogo/' . $product->getNombreImagen() . '"  />';
                                     ?>
-                                    <h3>ZOOM</h3>
-                                </div>
-
+                                   
+                                </div> 
                             </div>
                             <div class="col-sm-7">
                                 <div class="product-information"><!--/product-information-->
@@ -227,11 +241,14 @@ $product = $productIns->getProductById($idProd);
         ?>
 
 
-        <script src="js/jquery.js"></script>
+        
         <script src="js/price-range.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
+
+        
+        
     </body>
 </html>
