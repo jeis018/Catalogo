@@ -35,14 +35,14 @@ class Orders {
         global $db;
         $query = 'CALL updatePurchaseOrder(?)';
         $datos = array($id);
-       // $db->set($query, $datos);
+        // $db->set($query, $datos);
 
         $reportExcel = new OrdersReport();
         $reportExcel->generateReport(intval($id));
-        
+
         return $id;
 
-       // return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
+        // return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
     }
 
     /**
@@ -59,8 +59,10 @@ class Orders {
         $hoy = trim(UtilsTools::getDate());
         $datos = array($idUsuario, $totalPedido, $tipoPedido, $estado, $hoy);
         $query = "CALL insertOrder(?,?,?,?,?)";
-        $db->set($query, $datos);
-        return ($db->getRowCount() > 0) ? TRUE : FALSE;
+        $response = $db->set($query, $datos);
+
+        return $response[0]["idPedido"];
+//        return ($db->getRowCount() > 0) ? TRUE : FALSE;
     }
 
     /**
@@ -72,10 +74,24 @@ class Orders {
     public function insertDetailProduct($products, $idPedido) {
         global $db;
         $query = "CALL insertProductDetail(?,?,?)";
-        for ($i = 0; $i < count($products); $i++) {
-            if ($products[$i] != 0) {
-                $datos = array($idPedido, $products[$i], 1);
-                $db->set($query, $datos);
+        /* for ($i = 0; $i < count($products); $i++) {
+          //if ($products[$i] != 0) {
+          echo $idPedido . '-' . $products[$i] . "-" . 1;
+          $datos = array(intval($idPedido), intval($products[$i]), 1);
+          $db->set($query, $datos);
+          //}
+          } */
+
+        var_dump($products);
+
+
+        foreach ($products as $product) {
+            if ($product != 0) {
+                $db->set($query, array(
+                    intval($idPedido),
+                    intval($product),
+                    intval(1)
+                ));
             }
         }
     }

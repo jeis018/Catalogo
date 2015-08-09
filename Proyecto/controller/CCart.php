@@ -22,7 +22,7 @@ if ($resultInsert != null) {
         $quote = new QuotesReport($resultInsert);
     } elseif ($orderType == 2) {
         $order = new OrdersReport();
-        $order->generateReport($resultInsert);
+        $order->generateReport(intval($resultInsert));
     }
     $carProducts = array();
     $_SESSION["carProducts"] = $carProducts;

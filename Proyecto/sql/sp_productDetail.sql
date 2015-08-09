@@ -16,7 +16,7 @@ CREATE PROCEDURE insertProductDetail(
 )
 BEGIN
    
-	INSERT INTO DetallePedido (idPedido, idProducto, Cantidad)
+	INSERT INTO DetallePedido (idPedido, idProducto, CantidadProducto)
 	VALUES (_idPedido, _idProducto, _cantidad);
 
 END;

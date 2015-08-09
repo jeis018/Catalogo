@@ -113,4 +113,16 @@ class HeaderBean {
         $this->email = $email;
     }
 
+    public function toString() {
+        return $this->idPedido . " - " .
+                $this->fechaSolicitud . " - " .
+                $this->totalPedido . " - " .
+                $this->nombres . " - " .
+                $this->cedula . " - " .
+                $this->telefono . " - " .
+                $this->celular . " - " .
+                $this->direccion . " - " .
+                $this->email;
+    }
+
 }
