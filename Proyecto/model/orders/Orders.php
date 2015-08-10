@@ -3,8 +3,12 @@
 require_once ('../config/DBOperator.php');
 require_once ('../model/reports/OrdersReport.php');
 require_once ('../utils/UtilsTools.php');
+require_once ('../model/PDF/fpdf.php');
+require_once ('../model/reports2/generarPdf.php');
 
 $db = new DBDriver(PDOConfig::getInstance());
+
+$pdf = new FPDF();
 
 /**
  * Clase que realiza la gestión de las ordenes de compra.
