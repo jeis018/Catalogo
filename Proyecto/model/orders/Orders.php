@@ -43,8 +43,10 @@ class Orders {
 
         $reportExcel = new OrdersReport();
         $reportExcel->generateReport(intval($id));
-
-        return $id;
+        
+        
+        pdfGen(intval($id));
+        //return $id;
 
         // return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
     }
@@ -64,9 +66,10 @@ class Orders {
         $datos = array($idUsuario, $totalPedido, $tipoPedido, $estado, $hoy);
         $query = "CALL insertOrder(?,?,?,?,?)";
         $response = $db->set($query, $datos);
-
-        return $response[0]["idPedido"];
-//        return ($db->getRowCount() > 0) ? TRUE : FALSE;
+        
+        
+        //return $response[0]["idPedido"];
+        //return ($db->getRowCount() > 0) ? TRUE : FALSE;
     }
 
     /**
@@ -102,14 +105,19 @@ class Orders {
     
     
     
-    function pdfGen(){
+    function pdfGen($id){
         global $pdf;
-        $header = array();
-        $data = array();
-        $pdf->generar($header, $data);
+        
+        $query_header = 'call getBillHeader(?)';        
+        $header = $db->set($query_header, array($id));
+        
+        $query_detail = 'call getBillDetail(?)';
+        $detail = $db->set($query_detail, array($id));
+        
+        $pdf->generar($header, $detail);
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Output();
+        $pdf->Output($_SERVER['DOCUMENT_ROOT'].'/temp/pdfOrden.pdf','F');
     }
     
 
