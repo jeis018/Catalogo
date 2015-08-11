@@ -1,7 +1,7 @@
 <?php
 
 require_once ('IReport.php');
- require_once ('../../config/DBOperatorB.php');
+require_once ('../../config/DBOperatorB.php');
 require_once ('../bean/HeaderBean.php');
 require_once ('../bean/BodyBean.php');
 require_once ('../../lib/PHPExcel.php');

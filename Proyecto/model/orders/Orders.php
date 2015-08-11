@@ -8,7 +8,7 @@ require_once ('../model/reports2/generarPdf.php');
 
 $db = new DBDriver(PDOConfig::getInstance());
 
-$pdf = new FPDF();
+$pdf = new PDF();
 
 /**
  * Clase que realiza la gestión de las ordenes de compra.
@@ -99,5 +99,18 @@ class Orders {
             }
         }
     }
+    
+    
+    
+    function pdfGen(){
+        global $pdf;
+        $header = array();
+        $data = array();
+        $pdf->generar($header, $data);
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Output();
+    }
+    
 
 }
