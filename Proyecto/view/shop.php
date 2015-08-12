@@ -93,7 +93,7 @@ $zebraPage->records_per_page($productsPerPage);
                             ?>
                             
                         </div>
-                    </div><hr>
+                    </div>      <!--<hr>-->
                 </div>
             </div><!--/header-bottom-->
         </header><!--/header-->

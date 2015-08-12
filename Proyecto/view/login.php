@@ -107,7 +107,7 @@
                             <form method="POST" name="formLogin" action="../controller/CRegistro.php">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <select id="tipo_doc">
+                                        <select id="tipo_doc" style="background-color: white">
                                             <option value="">C.C.</option>
                                             <option value="">C.E.</option>
                                             <option value="">CONT.</option>

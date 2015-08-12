@@ -1090,11 +1090,11 @@ h2.title {
 
 
 #advertisement {
-  padding-bottom: 45px;
+    padding-bottom: 45px;
 }
 
 #advertisement img {
-  width: 100%;
+    width: 100%;
 }
 
 .pagination {
@@ -1128,9 +1128,9 @@ h2.title {
 .pagination a:hover, .pagination .active a {
     /*background-color: #F5F5F5;*/
     background-color: #FE980F;
-  border-color: #FE980F;
-  color: #FFFFFF;
-  cursor: default;
+    border-color: #FE980F;
+    color: #FFFFFF;
+    cursor: default;
 }
 .pagination .active a {
     color: #999999;
@@ -2563,3 +2563,28 @@ select#tipo_doc{
 }
 
 
+
+/****************************
+        COLORES DE FONDO
+****************************/
+
+
+header{
+    background-color: #F58220;
+}
+
+
+body{
+    background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	right top,
+	color-stop(0, #00AFEF),
+	color-stop(0.68, #1368AA)
+    );
+    background-image: -o-linear-gradient(right top, #00AFEF 0%, #1368AA 68%);
+    background-image: -moz-linear-gradient(right top, #00AFEF 0%, #1368AA 68%);
+    background-image: -webkit-linear-gradient(right top, #00AFEF 0%, #1368AA 68%);
+    background-image: -ms-linear-gradient(right top, #00AFEF 0%, #1368AA 68%);
+    background-image: linear-gradient(to right top, #00AFEF 0%, #1368AA 68%);
+}
