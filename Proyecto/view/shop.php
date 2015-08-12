@@ -86,38 +86,22 @@ $zebraPage->records_per_page($productsPerPage);
                                     <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            <div class="mainmenu pull-left">
-                                <ul class="nav navbar-nav collapse navbar-collapse">
-                                    <li><a href="index.php">Inicio</a></li>
-                                    <li><a href="shop.php?indicator=0" class="active">Productos</a></li>
-                                    <li><a href="contact-us.php">Contáctenos</a></li>
-                                    <?php
-                                    if (isset($_SESSION["user"])) {
-                                        $user = $_SESSION["user"];
-                                        $userType = $user[1];
-                                        if ($userType == 'A') {
-                                            echo
-                                            '<li class = "dropdown"><a href = "#">Administración<i class = "fa fa-angle-down"></i></a>
-                                            <ul role = "menu" class = "sub-menu">
-                                            <li><a href = "orders.php">Ordenes de Compra</a></li>
-                                            <li><a href = "administration.php">Agregar Productos</a></li>
-                                            </ul>
-                                            </li>';
-                                        }
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
+                            
+                            <?php
+                            $include = basename(__FILE__, '.php');
+                            require_once './menu.php';
+                            ?>
+                            
                         </div>
-                    </div>
+                    </div><hr>
                 </div>
             </div><!--/header-bottom-->
         </header><!--/header-->
 
         <section id="advertisement">
-            <div class="container">
+<!--            <div class="container">
                 <img src="images/shop/advertisement.jpg" alt="" />
-            </div>
+            </div>-->
         </section>
 
         <section>
