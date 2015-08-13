@@ -105,12 +105,12 @@ if (isset($_SESSION["logedOn"])) {
                                     <span class="icon-bar"></span>
                                 </button>
                             </div>
-                            
+
                             <?php
                             $include = basename(__FILE__, '.php');
                             require_once './menu.php';
                             ?>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -156,9 +156,11 @@ if (isset($_SESSION["logedOn"])) {
                                             </td>
                                             <td class="cart_quantity">
                                                 <div class="cart_quantity_button">
-                                                    <a class="cart_quantity_up" href=""> + </a>
-                                                    <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                                    <a class="cart_quantity_down" href=""> - </a>
+                                                    <form name="form">
+                                                        <a class="cart_quantity_up" href="#" onclick="process(2)"> + </a>
+                                                        <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                                        <a class="cart_quantity_down" href="#" onclick="process(1)"> - </a>
+                                                    </form>
                                                 </div>
                                             </td>
                                             <td class="cart_total">
@@ -225,5 +227,6 @@ if (isset($_SESSION["logedOn"])) {
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/funciones/cart.js"></script>
     </body>
 </html>
