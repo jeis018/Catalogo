@@ -2,11 +2,18 @@
 
 require_once ('IReport.php');
 
-require_once ('../config/DBOperatorB.php');
-require_once ('../model/bean/HeaderBean.php');
-require_once ('../model/bean/BodyBean.php');
-require_once ('../lib/PHPExcel.php');
-require_once ('../lib/PHPExcel/IOFactory.php');
+//require_once ('../../config/DBOperatorB.php');
+//require_once ('../bean/HeaderBean.php');
+//require_once ('../bean/BodyBean.php');
+//require_once ('../../lib/PHPExcel.php');
+//require_once ('../../lib/PHPExcel/IOFactory.php');
+
+
+//require_once ('../config/DBOperatorB.php');
+//require_once ('../model/bean/HeaderBean.php');
+//require_once ('../model/bean/BodyBean.php');
+//require_once ('../lib/PHPExcel.php');
+//require_once ('../lib/PHPExcel/IOFactory.php');
 
 /**
  * Clase que permite realizar la generación del reporte en xls de las Ordenes de compra.

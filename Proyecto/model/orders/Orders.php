@@ -3,12 +3,12 @@
 require_once ('../config/DBOperator.php');
 require_once ('../model/reports/OrdersReport.php');
 require_once ('../utils/UtilsTools.php');
-require_once ('../model/PDF/fpdf.php');
-require_once ('../model/reports2/generarPdf.php');
+//require_once ('../model/PDF/fpdf.php');
+//require_once ('../model/reports2/generarPdf.php');
 
 $db = new DBDriver(PDOConfig::getInstance());
 
-$pdf = new PDF();
+//$pdf = new PDF();
 
 /**
  * Clase que realiza la gestión de las ordenes de compra.
@@ -39,16 +39,14 @@ class Orders {
         global $db;
         $query = 'CALL updatePurchaseOrder(?)';
         $datos = array($id);
-        // $db->set($query, $datos);
+        $db->set($query, $datos);
 
         $reportExcel = new OrdersReport();
         $reportExcel->generateReport(intval($id));
         
-        
-        pdfGen(intval($id));
         //return $id;
 
-        // return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
+        return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
     }
 
     /**
@@ -101,23 +99,6 @@ class Orders {
                 ));
             }
         }
-    }
-    
-    
-    
-    function pdfGen($id){
-        global $pdf;
-        
-        $query_header = 'call getBillHeader(?)';        
-        $header = $db->set($query_header, array($id));
-        
-        $query_detail = 'call getBillDetail(?)';
-        $detail = $db->set($query_detail, array($id));
-        
-        $pdf->generar($header, $detail);
-        $pdf->AddPage();
-        $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Output($_SERVER['DOCUMENT_ROOT'].'/temp/pdfOrden.pdf','F');
     }
     
 

@@ -8,8 +8,8 @@ function main(){
         peticion += JSON.stringify({
             accion : 'buscar'
         });
-        return peticion;    console.log(peticion)
-    },function(respuesta){      console.log('ordenes: ', respuesta)
+        return peticion;    //console.log(peticion)
+    },function(respuesta){      //console.log('ordenes: ', respuesta)
         respuesta = JSON.parse(respuesta);      
         cargarPedidos(respuesta);        
     });   
@@ -39,6 +39,10 @@ function cambiarEstadoPedido(id){
         });
         return peticion;            
     },function(respuesta){      
-        console.log('ordenes cambio estado: ', respuesta); 
+        console.log('reponse: ', respuesta); 
     });
+    
+    
+    location.href="../model/reportsPDF/generarPdf.php?id="+ id;
+    
 }

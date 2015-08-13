@@ -9,6 +9,7 @@ $peticion = json_decode(filter_input(INPUT_POST, 'peticion'));
 switch ($peticion->accion){
     case 'buscar':
         $respuesta = $o->buscarOrdenes();
+        die(json_encode($respuesta));
         break;
     case 'cambiar estado':
         $respuesta = $o->cambiarEstado($peticion->id);
@@ -18,5 +19,5 @@ switch ($peticion->accion){
 //$prod = array(1,2,3,4,5,6);
 //$o->insertDetailProduct($prod, 100);
 
-die(json_encode($respuesta));
+
 
