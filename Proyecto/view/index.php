@@ -203,7 +203,7 @@ $randomProduct = new Products();
                                                         // De aqui para abajo no es necesario modificar nada    
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=130 HEIGHT=350>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
                                                         <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
@@ -226,7 +226,7 @@ $randomProduct = new Products();
                                                         // De aqui para abajo no es necesario modificar nada    
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=130 HEIGHT=350>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
                                                         <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
@@ -249,7 +249,7 @@ $randomProduct = new Products();
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
 
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=130 HEIGHT=350>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
                                                         <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;

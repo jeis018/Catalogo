@@ -23,6 +23,7 @@ $product = $productIns->getProductById($idProd);
         <link href="css/animate.css" rel="stylesheet">
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+        <link href="css/zoomy.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
@@ -33,12 +34,13 @@ $product = $productIns->getProductById($idProd);
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     </head><!--/head-->
-        <script src="js/jquery.js"></script>
-        <script src="js/jquery.imageLens.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+        <script src="js/zoomy.min.js"></script>
 	<script type="text/javascript" language="javascript">
-		$(function () {	
-			$("#detalleimg").imageLens({ lensSize: 200 });
-		});	
+
+        $(function () {
+            $('.detalleimg').zoomy();
+        });
 	</script>
 
 	</script>
@@ -195,9 +197,9 @@ $product = $productIns->getProductById($idProd);
                             <div class="col-sm-5">
                                 <div class="view-product">
                                     <?php
-                                    echo '<img id="detalleimg" src="images/catalogo/' . $product->getNombreImagen() . '"  />';
+                                    echo '<a href="images/catalogo/' . $product->getNombreImagen() . '" class="detalleimg"><img  src="images/catalogo/' . $product->getNombreImagen() . '" WIDTH=512px HEIGHT=384px  />                                    </a>
+';
                                     ?>
-                                   
                                 </div> 
                             </div>
                             <div class="col-sm-7">

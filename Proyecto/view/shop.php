@@ -208,7 +208,7 @@ $zebraPage->records_per_page($productsPerPage);
                                                 <div class="productinfo text-center">
                                                     <?php
                                                     echo '<tr>';
-                                                    echo '<img src="images/catalogo/' . $img . '" alt="Imagen" WIDTH=200 HEIGHT=300 />';
+                                                    echo '<img src="images/catalogo/' . $img . '" alt="Imagen" WIDTH=338px HEIGHT=254px />';
                                                     echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                     echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
                                                     echo '</tr>';
