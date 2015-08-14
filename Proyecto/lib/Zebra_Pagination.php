@@ -932,7 +932,7 @@ class Zebra_Pagination
 
                 // put the "..." after the link to the first/last page
                 // depending on whether we're showing links in reverse order or not
-                $output .= '<li><span>&hellip;</span></li>';
+                $output .= '<li><span></span></li>';
 
             }
 
@@ -972,7 +972,7 @@ class Zebra_Pagination
                 ($this->_properties['reverse'] && $ending_page > 2) ||
                 (!$this->_properties['reverse'] && $this->_properties['total_pages'] - $ending_page > 1)
 
-            ) $output .= '<li><span>&hellip;</span></li>';
+            ) $output .= '<li><span></span></li>';
 
             // put a link to the last/first page (depending on whether we're showing links in reverse order or not)
             $output .= '<li><a href="' . $this->_build_uri($this->_properties['reverse'] ? 1 : $this->_properties['total_pages']) . '" ' .
