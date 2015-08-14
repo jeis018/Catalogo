@@ -42,7 +42,9 @@ $randomProduct = new Products();
             }
         </script>
     </head><!--/head-->
-
+        <?php
+        require_once './banner.php';
+        ?>
     <body id="slidercarga">
         <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
@@ -50,7 +52,6 @@ $randomProduct = new Products();
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.php"><img src="images/home/logo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -167,19 +168,15 @@ $randomProduct = new Products();
                 <div class="row">
                     <div id="gmap" class="contact-map">
                         <h2 class="title text-center">Conózcanos</h2>
-                        Bienvenido a <b>Madessa.com</b>, un sitio web para la compra de productos escolares. En este sitio podrá encontrar los productos de la 
-                        mejor calidad a los mejores precios. En la sección <b>Productos</b>, encontrará un catálogo detallado de los productos que ofrecemos. 
-                        En este catálogo podrá realizar la consulta detallada de cada producto, y consultar por categoría los mismos. 
-                        Realizar una compra, consiste en tres sencillos pasos.<br/><br/>
+                        <p><br>
+                        Bienvenido a <b>Madessa.co</b>, su sitio web para la compra de productos escolares. En este podrá encontrar útiles escolares de optima calidad a los mejores precios. En la sección Productos, encontrará un catálogo con la descripción detallada de los productos ofrecidos.<br/>
+                        <br>para realizar su compra y/o cotización, realice los siguientes pasos:</br>                        
                         <ol type=1>
-                            <li>Regístrese o inicie sesión en el sistema.</li><br/>
-                            <li>Consulte el o los productos que desea adquirir y para cada uno de ellos seleccione la opción: <b>Agregar al carrito</b>. 
+                          <li>Regístrese o inicie sesión en el sistema.</li><br/>
+                            <li>Consulte los productos que desea adquirir y para cada uno de ellos seleccione la opción:  <b>Agregar al carrito</b>. 
                                 Cada vez que adicione un producto, podrá visualizar el listado de productos que actualmente tiene en el carrito.</li><br/>
-                            <li>Solicitar la orden de compra. Una vez que tenga en el carrito los productos que desea adquirir, revise la cantidad de cada uno, 
-                                para el pedido, y seleccione cualquiera de las dos opciones; <b>Cotización</b>, para descargar un archivo PDF, con la cotización 
-                                de los productos que se encuentran en el carrito de compras. <b>Orden de compra</b>, para descargar en un archivo PDF la factura 
-                                de la compra, y solicitar el despacho de la misma, que será enviada en los próximos dos días hábiles, teniendo en cuenta la información 
-                                proporcionada durante su registro en el sistema.</li><br/>
+                            <li>Una vez que tenga en el carrito los productos que desea adquirir, verifique su solicitud adicionando o borrando lo que crea necesario y seleccione la opción  <b>Cotización</b>para descargar un archivo PDF, con la cotización de los productos que se encuentran en el carrito de compras; o seleccione 
+                                <b>Orden de compra</b>, para descargar en un archivo PDF la orden de compra, y solicitar el despacho de la misma, teniendo en cuenta la información proporcionada durante su registro en el sistema.</li><br/>
                         </ol>
                     </div>
 
@@ -203,10 +200,10 @@ $randomProduct = new Products();
                                                         // De aqui para abajo no es necesario modificar nada    
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
 
                                                     </div>
 
@@ -226,10 +223,10 @@ $randomProduct = new Products();
                                                         // De aqui para abajo no es necesario modificar nada    
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
 
                                                     </div>
                                                 </div>
@@ -249,10 +246,10 @@ $randomProduct = new Products();
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
 
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
 
                                                     </div>
                                                 </div>

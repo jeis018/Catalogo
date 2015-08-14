@@ -25,7 +25,9 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     </head><!--/head-->
-
+    <?php
+        require_once './banner.php';
+        ?>
     <body>
         <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
@@ -33,7 +35,6 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.php"><img src="images/home/logo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
