@@ -116,37 +116,17 @@ $product = $productIns->getProductById($idProd);
                             <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=1">Esferos</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=1">Bolígrafos</a></h4>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=2">Borradores</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=3">Colores</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=4">Carpetas</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=5">Cintas</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
+                                   <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title"><a href="shop.php?indicator=6">Compas</a></h4>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
+                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=7">Lapices</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=15">Tajalápiz</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -156,22 +136,12 @@ $product = $productIns->getProductById($idProd);
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="shop.php?indicator=11">Corretores</a></h4>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
                                         <h4 class="panel-title"><a href="shop.php?indicator=9">Portaminas</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=10">Resaltadores</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=11">Corretor</a></h4>
-                                    </div>
-                                </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=12">Tijeras</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -181,12 +151,42 @@ $product = $productIns->getProductById($idProd);
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=14">Kit</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=10">Resaltadores</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=15">Tajalapiz</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=12">Tijeras</a></h4>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="shop.php?indicator=7">Lápices </a></h4>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="shop.php?indicator=3">Lápices de Colores</a></h4>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="shop.php?indicator=2">Borradores</a></h4>
+                                    </div>
+                                </div>                               
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="shop.php?indicator=4">Carpetas</a></h4>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="shop.php?indicator=5">Cintas Decorativas</a></h4>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"><a href="shop.php?indicator=14">Kits de Variedades</a></h4>
                                     </div>
                                 </div>
                             </div><!--/category-productsr-->
