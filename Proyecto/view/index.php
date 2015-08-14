@@ -59,14 +59,14 @@ $randomProduct = new Products();
                                 <ul class="nav navbar-nav">
                                     <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
                                     <?php
-                                    // if (isset($_SESSION["logedOn"])) {
-                                    $logedOn = $_SESSION["logedOn"];
-                                    if ($logedOn == FALSE) {
-                                        echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
-                                    } else {
-                                        echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
+                                    if (isset($_SESSION["logedOn"])) {
+                                        $logedOn = $_SESSION["logedOn"];
+                                        if ($logedOn == FALSE) {
+                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
+                                        } else {
+                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
+                                        }
                                     }
-                                    //}
                                     ?>
                                 </ul>
                             </div>
