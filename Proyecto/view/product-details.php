@@ -50,7 +50,9 @@ $product = $productIns->getProductById($idProd);
     <script type="text/javascript">	
         try{var pageTracker = _gat._getTracker("UA-2030729-5");pageTracker._initData();pageTracker._trackPageview();}catch(ex){}
     </script>
- 
+ <?php
+        require_once './banner.php';
+        ?>
     <body>
         <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
@@ -58,7 +60,6 @@ $product = $productIns->getProductById($idProd);
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.php"><img src="images/home/logo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">

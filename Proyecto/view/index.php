@@ -42,7 +42,9 @@ $randomProduct = new Products();
             }
         </script>
     </head><!--/head-->
-
+        <?php
+        require_once './banner.php';
+        ?>
     <body id="slidercarga">
         <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
@@ -50,7 +52,6 @@ $randomProduct = new Products();
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="logo pull-left">
-                                <a href="index.php"><img src="images/home/logo.png" alt="" /></a>
                             </div>
                         </div>
                         <div class="col-sm-8">
@@ -203,10 +204,10 @@ $randomProduct = new Products();
                                                         // De aqui para abajo no es necesario modificar nada    
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
 
                                                     </div>
 
@@ -226,10 +227,10 @@ $randomProduct = new Products();
                                                         // De aqui para abajo no es necesario modificar nada    
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
 
                                                     </div>
                                                 </div>
@@ -249,10 +250,10 @@ $randomProduct = new Products();
                                                         $random = mt_rand(1, $total);
                                                         $products = $randomProduct->getProductById($random);
 
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>';
+                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
                                                         ?> 
                                                         <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>'; ?>;
+                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
 
                                                     </div>
                                                 </div>
