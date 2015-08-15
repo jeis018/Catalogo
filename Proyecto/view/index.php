@@ -41,6 +41,14 @@ $randomProduct = new Products();
                 $("#slidercarga").load("index.php");
             }
         </script>
+<!--    <style type="text/css">
+    body,td,th {
+	font-family: Roboto, sans-serif;
+}
+body {
+	background-image: url(images/home/bg.png);
+}
+    </style>-->
     </head><!--/head-->
         <?php
         require_once './banner.php';
