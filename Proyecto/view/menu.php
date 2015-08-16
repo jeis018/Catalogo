@@ -26,6 +26,9 @@
                         <li>
                             <a <?php echo ($include === 'administration') ? 'class="active"' : ''?> href = "administration.php">Agregar Productos</a>
                         </li>
+                        <li>
+                            <a <?php echo ($include === 'listaProductos') ? 'class="active"' : ''?> href = "listaProductos.php">Listar</a>
+                        </li>
                     </ul>
                 </li>
                 <?php

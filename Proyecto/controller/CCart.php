@@ -7,7 +7,7 @@ session_start();
 
 $userAux = $_SESSION["user"];
 $user = $userAux[0];
-
+echo 'Hola';
 $orderType = $_GET["orderType"];
 $totalOrder = $_GET["totalPedido"];
 $productsAux = $_GET["products"];
@@ -18,11 +18,13 @@ $resultInsert = $order->insertOrder($user, $totalOrder, $tipoPedido);
 if ($resultInsert != null) {
     $products = explode("-", $productsAux);
     $order->insertDetailProduct($products, $resultInsert);
+    echo 'orderType: ' . $orderType;
     if ($orderType == 1) {
         $quote = new QuotesReport($resultInsert);
     } elseif ($orderType == 2) {
+        echo '-Hola-';
         $order = new OrdersReport();
-        $order->generateReport(intval($resultInsert));
+        //$order->generateReport(intval($resultInsert));
     }
     $carProducts = array();
     $_SESSION["carProducts"] = $carProducts;
