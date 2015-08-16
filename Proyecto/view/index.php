@@ -69,6 +69,7 @@ $randomProduct = new Products();
                                     }
                                     ?>
                                 </ul>
+                                <a href="../controls"
                             </div>
                         </div>
                     </div>
@@ -103,61 +104,6 @@ $randomProduct = new Products();
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-<!--                        <div id="slider-carousel" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#slider-carousel" data-slide-to="1"></li>
-                                <li data-target="#slider-carousel" data-slide-to="2"></li>
-                            </ol>
-
-                            <div class="carousel-inner" >
-                                <div class="item active">
-                                    <div class="col-sm-6">
-                                        <h1><span>E</span>-SHOPPER</h1>
-                                        <h2>Free E-Commerce Template</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <img src="images/home/pricing.png"  class="pricing" alt="" />
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="col-sm-6">
-                                        <h1><span>E</span>-SHOPPER</h1>
-                                        <h2>100% Responsive Design</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                                        <img src="images/home/pricing.png"  class="pricing" alt="" />
-                                    </div>
-                                </div>
-
-                                <div class="item">
-                                    <div class="col-sm-6">
-                                        <h1><span>E</span>-SHOPPER</h1>
-                                        <h2>Free Ecommerce Template</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                        <button type="button" class="btn btn-default get">Get it now</button>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                                        <img src="images/home/pricing.png" class="pricing" alt="" />
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                            <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </div>-->
-
                     </div>
                 </div>
             </div>
@@ -175,97 +121,12 @@ $randomProduct = new Products();
                           <li>Regístrese o inicie sesión en el sistema.</li><br/>
                             <li>Consulte los productos que desea adquirir y para cada uno de ellos seleccione la opción:  <b>Agregar al carrito</b>. 
                                 Cada vez que adicione un producto, podrá visualizar el listado de productos que actualmente tiene en el carrito.</li><br/>
-                            <li>Una vez que tenga en el carrito los productos que desea adquirir, verifique su solicitud adicionando o borrando lo que crea necesario y seleccione la opción  <b>Cotización</b>para descargar un archivo PDF, con la cotización de los productos que se encuentran en el carrito de compras; o seleccione 
-                                <b>Orden de compra</b>, para descargar en un archivo PDF la orden de compra, y solicitar el despacho de la misma, teniendo en cuenta la información proporcionada durante su registro en el sistema.</li><br/>
+                            <li>Una vez que tenga en el carrito los productos que desea adquirir, verifique su solicitud adicionando o borrando lo 
+                                que crea necesario y seleccione la opción  <b>Cotización</b> para descargar un archivo PDF, con la cotización de los productos 
+                                que se encuentran en el carrito de compras; o seleccione <b>Orden de compra</b>, para descargar en un archivo PDF 
+                                la orden de compra, y solicitar el despacho de la misma, teniendo en cuenta la información proporcionada durante 
+                                su registro en el sistema.</li><br/>
                         </ol>
-                    </div>
-
-                    <div id="gmap">
-                        <div class="features_items"><!--features_items-->
-                            <h2 class="title text-center">Algunos productos</h2>
-                            <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-
-                                <div class="carousel-inner" style="alignment-adjust: central; margin-left: 350px;">
-
-                                    <div class="item active">	
-                                        <div class="col-sm-4">
-
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <?php
-                                                        $total = "134"; // Numero total de imagenes 
-                                                        $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
-                                                        $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
-                                                        // De aqui para abajo no es necesario modificar nada    
-                                                        $random = mt_rand(1, $total);
-                                                        $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
-                                                        ?> 
-                                                        <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">	
-                                        <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <?php
-                                                        $total = "134"; // Numero total de imagenes 
-                                                        $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
-                                                        $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
-                                                        // De aqui para abajo no es necesario modificar nada    
-                                                        $random = mt_rand(1, $total);
-                                                        $products = $randomProduct->getProductById($random);
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
-                                                        ?> 
-                                                        <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item">	
-                                        <div class="col-sm-4">
-                                            <div class="product-image-wrapper">
-                                                <div class="single-products">
-                                                    <div class="productinfo text-center">
-                                                        <?php
-                                                        $total = "134"; // Numero total de imagenes 
-                                                        $extension = ".png"; // Definimos la extension, puede ser .jpg, gif, bmp, etc. 
-                                                        $carpeta = "images/catalogo/"; //Carpeta con las imagenes 
-                                                        // De aqui para abajo no es necesario modificar nada    
-                                                        $random = mt_rand(1, $total);
-                                                        $products = $randomProduct->getProductById($random);
-
-                                                        echo '<img src="images/catalogo/' . $products->getNombreImagen() . '" border="0" WIDTH=410px HEIGHT=308px>'
-                                                        ?> 
-                                                        <?php echo $products->getNombre(); ?></p>
-                                                        <?php echo '<a href="cart.php?idProducto=' . $products->getIdProducto() . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>' ?>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                </center>
-                                <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev" onclick="javascript:cargar();">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                                <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next" onclick="javascript:cargar();">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>			
-                            </div>
-                        </div><!--/recommended_items-->
                     </div>
                     </center>
                 </div>

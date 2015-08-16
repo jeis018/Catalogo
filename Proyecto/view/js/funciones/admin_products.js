@@ -18,7 +18,6 @@ function main(){
 }
 
 
-
 function setVistaProductos(data){
     var temp = _.template($('#temp_lista_Productos').html());
     $('#lista_productos').html(temp({
@@ -46,6 +45,7 @@ function deleteProduct(objProduct){
             response = JSON.parse(response);
             if(response == 1){
                 alert("El producto se eliminó correctamente !!");
+                main();
             }else if(response== 0){
                 alert("ERROR: El producto no se eliminó. ")
             }

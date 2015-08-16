@@ -3,28 +3,39 @@ function validateFields(){
         errorNotification('nombre');
         return 1;
     } else {
-       reset('nombre'); 
+        reset('nombre'); 
     }
     if($('#descripcion').val().trim() == ''){
         errorNotification('descripcion');
         return 1;
+    } else {
+        reset('descripcion');
     }
     if($('#precio').val().trim() == ''){
         errorNotification('precio');
         return 1;
+    } else {
+        reset('precio');
     }
     if($('#referencia').val().trim() == ''){
         errorNotification('referencia');
         return 1;
+    }else {
+        reset('referencia');
     }
     if($('#unidad').val().trim() == ''){
         errorNotification('unidad');
         return 1;
+    }else {
+        reset('unidad');
     }
     if($('#categoria').val().trim() == ''){
         errorNotification('categoria');
         return 1;
+    }else {
+        reset('categoria');
     }
+    return 0;
 }
 
 function errorNotification(field){
@@ -66,8 +77,6 @@ $('#btn_agregar').click(function () {
                 }
             }
         });
-    }else {
-        errorNotification();
     }
 });
 
