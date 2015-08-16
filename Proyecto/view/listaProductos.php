@@ -90,7 +90,9 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
                         <div class="panel panel-default">
-                            <div class="panel-heading">Listado</div>
+                            <div class="panel-heading">
+                                <h3>Listado</h3>
+                            </div>
                             <div class="panel-body" style="height: 800px; overflow-y: auto">
                                 <table class="table table-hover">
                                     <thead>
@@ -118,14 +120,19 @@
         ?>
         
         <script type="text/template" id="temp_lista_Productos">
-            <%_.each(productos, function(producto){%>
+            <%_.each(productos, function(producto){     console.log(producto)%>
             <tr>
-                <td><%producto.Nombre%></td>
-                <td><%producto.Descripcion%></td>
-                <td><%producto.Precio%></td>
-                <td><%producto.Referencia%></td>
-                <td><%producto.UnidadVenta%></td>
-                <td><%producto.Categoria%></td>
+                <td><%-producto.Nombre%></td>
+                <td><%-producto.Descripcion%></td>
+                <td><%-producto.Precio%></td>
+                <td><%-producto.Referencia%></td>
+                <td><%-producto.UnidadVenta%></td>
+                <td><%-producto.Categoria%></td>
+                <td>
+                    <button class="btn btn-danger btn-sm" data-role="delete" data-id="<%-producto.idProducto%>" data-nombreImg="<%-producto.NombreImagen%>">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
             </tr>
             <%});%>
         </script>
@@ -137,6 +144,7 @@
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
         <script src="js/utilities.js"></script>
+        <script src="js/utilities2.js"></script>
         <script src="js/funciones/admin_products.js"></script>
     </body>
 </html>

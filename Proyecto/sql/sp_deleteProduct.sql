@@ -12,7 +12,7 @@ CREATE PROCEDURE deleteProduct(
     IN _idProducto INT
 )
 BEGIN
-   
+    
     DELETE FROM Producto WHERE idProducto = _idProducto;
 
 END;

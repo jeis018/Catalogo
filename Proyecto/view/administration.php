@@ -94,16 +94,22 @@
                             <form id="form_nuevo_producto" enctype="multipart/form-data">
                                 <label>Nombre</label>
                                 <input type="text" class="" id="nombre" name="nombre" placeholder="Nombre" autofocus>
+                                <span style="color: #A41010; display: none;" class="pull-right" data-id="nombre">El campo es requerido.</span><br>
                                 <label>Descripción</label>
                                 <textarea class="" id="descripcion" name="descripcion" rows="5"></textarea>
+                                <span style="color: #A41010; display: none;" class="pull-right" data-id="descripcion">El campo es requerido.</span><br>
                                 <label>Precio</label>
                                 <input type="text" class="" id="precio" name="precio" placeholder="Precio">
+                                <span style="color: #A41010; display: none;" class="pull-right" data-id="precio">El campo es requerido.</span><br>
                                 <label>Referencia</label>
                                 <input type="text" class="" id="referencia" name="referencia" placeholder="Referencia">
+                                <span style="color: #A41010; display: none;" class="pull-right" data-id="referencia">El campo es requerido.</span><br>
                                 <label>Unidad de vanta</label>
                                 <input type="text" class="" id="unidad" name="unidad" placeholder="Unidad de venta">
+                                <span style="color: #A41010; display: none;" class="pull-right" data-id="unidad">El campo es requerido.</span><br>
                                 <label>Categoria</label>
                                 <input type="text" class="" id="categoria" name="categoria" placeholder="Categoria">
+                                <span style="color: #A41010; display: none;" class="pull-right" data-id="categoria">El campo es requerido.</span><br>
                                 <label>Imagen</label>
                                 <input type="file" class="" id="imagen" name="imagen">
                                 <button type="button" id="btn_agregar" class="btn btn-default">Agregar</button>

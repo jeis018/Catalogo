@@ -82,9 +82,9 @@ BEGIN
     END iF;
 
 	IF _Category = 'ALL' THEN
-		SELECT * FROM Producto LIMIT _StartRegistry, _NumberRegistry;
+		SELECT * FROM Producto ORDER BY idProducto LIMIT _StartRegistry, _NumberRegistry;
 		ELSE
-		SELECT * FROM Producto WHERE Categoria = _Category LIMIT _StartRegistry, _NumberRegistry;
+		SELECT * FROM Producto WHERE Categoria = _Category ORDER BY idProducto LIMIT _StartRegistry, _NumberRegistry;
 	END IF;
 
 END;

@@ -1,7 +1,10 @@
 <?php
 
 require_once ('../config/DBOperatorB.php');
+require_once ('../config/DBOperator.php');
 require_once ('Product.php');
+
+$db = new DBDriver(PDOConfig::getInstance());
 
 /**
  * Clase que permite realizar la carga de los productos almacenados en la base de datos
@@ -87,6 +90,30 @@ class Products {
         }
         mysql_close();
         return $this->product;
+    }
+
+    /**
+     * Lista los productos de la base de datos, sin ningún formato.
+     * @global DBDriver $db
+     * @param type $limit
+     * @param type $productsPerPage
+     * @param type $indicatorCategory
+     * @return type
+     */
+    public function listarProductos($limit, $productsPerPage, $indicatorCategory) {
+        global $db;
+        $query = 'CALL getProducts(?,?,?)';
+        $data = array($limit, $productsPerPage, $indicatorCategory);
+        $response = $db->set($query, $data);
+        return $response;
+    }
+
+    public function deleteProduct($id, $nombreImg) {
+        global $db;
+        $query = "CALL deleteProducto(?)";
+        $data = array(intval($id));
+        $db->set($query, $data);
+        return ($db->getRowCount() > 0) ? 1 : 0;
     }
 
 }
