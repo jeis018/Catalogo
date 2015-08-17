@@ -18,7 +18,7 @@ $zebraPage->records($totalProducts);
 $zebraPage->records_per_page($productsPerPage);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -209,7 +209,7 @@ $zebraPage->records_per_page($productsPerPage);
                                                 <div class="productinfo text-center">
                                                     <?php
                                                     echo '<tr>';
-                                                    echo '<img src="images/catalogo/' . $img . '" alt="Imagen" WIDTH=338px HEIGHT=254px />';
+                                                    echo '<img src="images/catalogo/' . $img . '" alt="Imagen" WIDTH=255px HEIGHT=192px />';
                                                     echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                     echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
                                                     echo '</tr>';

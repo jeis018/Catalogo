@@ -6,7 +6,7 @@ $randomProduct = new Products();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,10 +50,10 @@ body {
 }
     </style>-->
     </head><!--/head-->
-        <?php
+           <?php
         require_once './banner.php';
         ?>
-    <body id="slidercarga">
+    <body>
         <header id="header"><!--header-->
             <div class="header-middle"><!--header-middle-->
                 <div class="container">
@@ -77,7 +77,6 @@ body {
                                     }
                                     ?>
                                 </ul>
-                                <a href="../controls"
                             </div>
                         </div>
                     </div>
@@ -103,7 +102,7 @@ body {
                             ?>
                             
                         </div>
-                    </div>
+                    </div>      <!--<hr>-->
                 </div>
             </div><!--/header-bottom-->
         </header><!--/header-->
