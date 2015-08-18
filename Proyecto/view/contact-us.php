@@ -119,7 +119,7 @@
                             <address>
                                 <p>Teléfono: +2346 17 38 93</p>
                                 <p>Fax: 1-714-252-0026</p>
-                                <p>Email: info@Madessa.com</p>
+                                <p>Email: info@madessa.com</p>
                             </address>
                         </div>
                     </div>    			
