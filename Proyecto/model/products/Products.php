@@ -110,10 +110,15 @@ class Products {
 
     public function deleteProduct($id, $nombreImg) {
         global $db;
-        $query = "CALL deleteProducto(?)";
+        $query = "CALL deleteProduct(?)";
         $data = array(intval($id));
         $db->set($query, $data);
-        return ($db->getRowCount() > 0) ? 1 : 0;
+        
+        $resp = ($db->getRowCount() > 0) ? 1 : 0;
+        if($resp === 1){
+            unlink('../view/images/catalogo/'.$nombreImg);
+        }
+        return $resp;
     }
 
 }

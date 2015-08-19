@@ -7,9 +7,8 @@ $a = new Agregar();
 $respuesta = array();
 $nombreImagen;
 
-var_dump($_POST);
-var_dump($_FILES);
-
+//var_dump($_POST);
+//var_dump($_FILES);
 
 
 header('Content-Type: text/plain; charset=utf-8');
@@ -27,7 +26,7 @@ try {
         case UPLOAD_ERR_OK:
             break;
         case UPLOAD_ERR_NO_FILE:
-            throw new RuntimeException('Ningun archivo fue subido');
+            throw new RuntimeException('Ningun hay imagen para subir');
         case UPLOAD_ERR_INI_SIZE:
         case UPLOAD_ERR_FORM_SIZE:
             throw new RuntimeException('El tamaño del archivo excede el limite');

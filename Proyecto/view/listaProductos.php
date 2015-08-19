@@ -87,30 +87,35 @@
         <section>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3>Listado</h3>
                             </div>
-                            <div class="panel-body" style="height: 800px; overflow-y: auto">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <th>Nombre</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Referencia</th>
-                                        <th>Unidad Venta</th>
-                                        <th>Categoria</th>
-                                    </thead>
-                                    <tbody id="lista_productos">
-                                        
-                                    </tbody>
-                                </table>
+                            <div class="panel-body">
+                                <h4>Buscar:</h4>
+                                <input type="text" id="search" class="form-control" placeholder="NOMBRE PRODUCTO, REFERENCIA, CATEGORIA">
+                                <hr>
+                                <div style="height: 300px; overflow-y: auto; overflow-x: no-display">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <th>Nombre</th>
+                                            <th>Descripción</th>
+                                            <th>Precio</th>
+                                            <th>Referencia</th>
+                                            <th>Unidad Venta</th>
+                                            <th>Categoria</th>
+                                        </thead>
+                                        <tbody id="lista_productos"  style="/*font-size: 11px*/">
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-2"></div>
+                    <div class="col-md-1"></div>
                 </div>      <!--    FIN ROW     -->
             </div>          <!-- FIN CONTAINER  -->
         </section>

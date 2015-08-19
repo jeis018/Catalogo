@@ -90,8 +90,8 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
                         <h3>Agregar Producto</h3>
-                        <div class="signup-form" style="height: 700px">
-                            <form id="form_nuevo_producto" enctype="multipart/form-data">
+                        <div class="signup-form" style="height: 800px">
+                            <form id="form_nuevo_producto" enctype="multipart/form-data" method="POST">
                                 <label>Nombre</label>
                                 <input type="text" class="" id="nombre" name="nombre" placeholder="Nombre" autofocus>
                                 <span style="color: #A41010; display: none;" class="pull-right" data-id="nombre">El campo es requerido.</span><br>
@@ -111,7 +111,7 @@
                                 <input type="text" class="" id="categoria" name="categoria" placeholder="Categoria">
                                 <span style="color: #A41010; display: none;" class="pull-right" data-id="categoria">El campo es requerido.</span><br>
                                 <label>Imagen</label>
-                                <input type="file" class="" id="imagen" name="imagen">
+                                <input type="file" class="" id="imagenUp" name="imagen">
                                 <button type="button" id="btn_agregar" class="btn btn-default">Agregar</button>
                             </form>
                         </div>
@@ -125,7 +125,7 @@
         require_once './footer.php';
         ?>
 
-        <script src="js/jquery.js"></script>
+        <script src="js/jquery-1.11.3.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/price-range.js"></script>
