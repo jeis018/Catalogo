@@ -32,80 +32,11 @@ $randomProduct = new Products();
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <link> 
-        <script type="text/javascript">
-//        $(document).ready(function(){
-//        setInterval(cargar,8000);
-//        });
-
-            function cargar() {
-                $("#slidercarga").load("index.php");
-            }
-        </script>
-<!--    <style type="text/css">
-    body,td,th {
-	font-family: Roboto, sans-serif;
-}
-body {
-	background-image: url(images/home/bg.png);
-}
-    </style>-->
     </head><!--/head-->
-           <?php
-        require_once './banner.php';
-        ?>
     <body>
-        <header id="header"><!--header-->
-            <div class="header-middle"><!--header-middle-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="logo pull-left">
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="shop-menu pull-right">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-                                    <?php
-                                    if (isset($_SESSION["logedOn"])) {
-                                        $logedOn = $_SESSION["logedOn"];
-                                        if ($logedOn == FALSE) {
-                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
-                                        } else {
-                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
-                                        }
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/header-middle-->
-
-            <div class="header-bottom"><!--header-bottom-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            
-                            <?php
-                            $include = basename(__FILE__, '.php');
-                            require_once './menu.php';
-                            ?>
-                            
-                        </div>
-                    </div>      <!--<hr>-->
-                </div>
-            </div><!--/header-bottom-->
-        </header><!--/header-->
+        <?php
+        require_once './header.php';
+        ?>
 
         <section id="slider"><!--slider-->
             <div class="container">
@@ -122,10 +53,10 @@ body {
                     <div id="gmap" class="contact-map">
                         <h2 class="title text-center">Conózcanos</h2>
                         <p><br>
-                        Bienvenido a <b>Madessa.co</b>, su sitio web para la compra de productos escolares. En este podrá encontrar útiles escolares de optima calidad a los mejores precios. En la sección Productos, encontrará un catálogo con la descripción detallada de los productos ofrecidos.<br/>
-                        <br>para realizar su compra y/o cotización, realice los siguientes pasos:</br>                        
+                            Bienvenido a <b>Madessa.co</b>, su sitio web para la compra de productos escolares. En este podrá encontrar útiles escolares de optima calidad a los mejores precios. En la sección Productos, encontrará un catálogo con la descripción detallada de los productos ofrecidos.<br/>
+                            <br>para realizar su compra y/o cotización, realice los siguientes pasos:</br>                        
                         <ol type=1>
-                          <li>Regístrese o inicie sesión en el sistema.</li><br/>
+                            <li>Regístrese o inicie sesión en el sistema.</li><br/>
                             <li>Consulte los productos que desea adquirir y para cada uno de ellos seleccione la opción:  <b>Agregar al carrito</b>. 
                                 Cada vez que adicione un producto, podrá visualizar el listado de productos que actualmente tiene en el carrito.</li><br/>
                             <li>Una vez que tenga en el carrito los productos que desea adquirir, verifique su solicitud adicionando o borrando lo 

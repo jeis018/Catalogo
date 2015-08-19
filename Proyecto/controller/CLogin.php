@@ -16,7 +16,7 @@ if ($user->getCodigoRespuesta() == '00') {
     } else {
         $_SESSION['user'] = array($user->getIdUsuario(), 'I');
     }
-    echo"<script type=\"text/javascript\">alert('Bienvenido de nuevo " . $username . "'); window.location='../view/index.php';</script>";
+    echo "<script type=\"text/javascript\">alert('Bienvenido de nuevo " . $username . "'); window.location='../view/index.php';</script>";
 } else {
-    echo"<script type=\"text/javascript\">alert('Las credenciales de acceso son incorrectas'); window.location='../view/login.php';</script>";
+    echo "<script type=\"text/javascript\">alert('Las credenciales de acceso son incorrectas'); window.location='../view/login.php';</script>";
 }
