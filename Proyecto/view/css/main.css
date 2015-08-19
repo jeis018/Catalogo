@@ -34,7 +34,7 @@ a {
     transition: 300ms;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, h7 {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -299,6 +299,12 @@ ul.sub-menu {
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
     display: none;
     z-index: 999;
+}
+
+ul.sub-menu .h7{
+    color: #FFF;
+    text-decoration: underline;
+    font-size: 18px;
 }
 
 .dropdown ul.sub-menu li .active{
