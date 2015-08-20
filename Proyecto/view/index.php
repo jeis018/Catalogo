@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-require_once ('../model/products/Products.php');
-$randomProduct = new Products();
 ?>
 
 <!DOCTYPE html>
