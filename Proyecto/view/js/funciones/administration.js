@@ -25,11 +25,6 @@ function validate() {
 
 
 
-//===============================================
-//      EVENTOS
-//===============================================
-
-
 
 $('#btn_agregar').click(function () {
     if (validate()) {
@@ -43,7 +38,6 @@ $('#btn_agregar').click(function () {
             processData: false,
             success: function (datos)
             {
-                //console.log(datos);
                 datos = JSON.parse(datos);
                 alert(datos['msg']);
                 if (datos['estado'] === 1) {

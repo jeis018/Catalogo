@@ -23,7 +23,7 @@
                         <li>
                             <a <?php echo ($include === 'orders') ? 'class="active"' : '' ?> href = "orders.php">Ordenes de Compra</a>
                         </li>
-                        <h7 class="h7">Productos</h7>
+                        <!--<h7 class="h7">Productos</h7>-->
                         <li>
                             <a <?php echo ($include === 'administration') ? 'class="active"' : '' ?> href = "administration.php">Agregar Producto</a>
                         </li>

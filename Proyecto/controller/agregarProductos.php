@@ -26,7 +26,7 @@ try {
         case UPLOAD_ERR_OK:
             break;
         case UPLOAD_ERR_NO_FILE:
-            throw new RuntimeException('Ningun hay imagen para subir');
+            throw new RuntimeException('No hay imagen para subir');
         case UPLOAD_ERR_INI_SIZE:
         case UPLOAD_ERR_FORM_SIZE:
             throw new RuntimeException('El tamaño del archivo excede el limite');
@@ -79,15 +79,15 @@ $datos = array(
 );
 
 //var_dump($datos);
+$cantidad = filter_input(INPUT_POST, 'cantidad');
 
 $resp = $a->agregarProducto($datos);
-
 
 if ($resp > 0) {
     $respuesta['msg'] = 'Guardado exitosamente';
     $respuesta['estado'] = 1;
 } else {
-    $respuesta['msg'] = 'Error al guardar en la base';
+    $respuesta['msg'] = 'Error al guardar los datos';
     $respuesta['estado'] = 0;
     unlink($uploaddir.$nombreImagen);
 }

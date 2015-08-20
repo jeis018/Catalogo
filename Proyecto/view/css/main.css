@@ -38,11 +38,11 @@ h1, h2, h3, h4, h5, h6, h7 {
     font-family: 'Roboto', sans-serif;
 }
 
-.btn:hover, 
+/*.btn:hover, 
 .btn:focus{
     outline: none;
     box-shadow: none;
-}
+}*/
 
 .navbar-toggle {
     background-color: #000;
@@ -2587,3 +2587,44 @@ select#tipo_doc{
 }
 
 
+/*--------------------*/
+
+btn_acc{
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
+
+.btn-default:hover{
+    background-color: #E6C812;
+    font-size: 14px;
+    color: #FFFFFF;
+    border: 0 none;
+}
+
+.btn-default:focus{
+    background-color: #FE980F;
+    font-size: 14px;
+    color: #FFFFFF;
+    border: 0 none;
+}
+
+
+.msg-add{
+    position: fixed;
+    bottom: 10px;
+    right: 100px;
+    background-color: #FE980F;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 15px;
+}
+
+.msg-add p{
+    margin-bottom: 0;
+    font-size: 22px;
+    font: oblique 120% sans-serif bold;
+    color: #FFFFFF;
+    text-shadow: 2px 2px 5px #000;
+}

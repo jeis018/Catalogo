@@ -221,7 +221,7 @@ $zebraPage->records_per_page($productsPerPage);
                                                         <?php
                                                         echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                         echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
-                                                        echo '<a href="cart.php?idProducto=' . $regProducts[$i]["idProducto"] . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
+                                                        echo '<a onclick="add('.$regProducts[$i]["idProducto"].')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
                                                         ?>
                                                     </div>
                                                 </div>
@@ -254,12 +254,17 @@ $zebraPage->records_per_page($productsPerPage);
                 echo '</ul>';
                 ?>
             </center>
-
+            <br><br><br><br>
         </section>
 
         <?php
         require_once './footer.php';
         ?>
+        
+        
+        <div class="msg-add" style="display: none">
+            <p>Agregado al carrito</p>
+        </div>
 
 
         <script src="js/jquery.js"></script>
@@ -268,5 +273,7 @@ $zebraPage->records_per_page($productsPerPage);
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/utilities2.js"></script>
+        <script src="js/funciones/addProduct.js"></script>
     </body>
 </html>

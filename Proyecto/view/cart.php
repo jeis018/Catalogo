@@ -60,6 +60,24 @@ if (isset($_SESSION["logedOn"])) {
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        
+        <script src="js/utilidad3.js"></script>
+        <script>
+            accounting.settings = {
+                    currency: {
+                            symbol : "$",   // default currency symbol is '$'
+                            format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+                            decimal : ".",  // decimal point separator
+                            thousand: ",",  // thousands separator
+                            precision : 0   // decimal places
+                    },
+                    number: {
+                            precision : 0,  // default precision on numbers is 0
+                            thousand: ",",
+                            decimal : "."
+                    }
+            }
+        </script>
     </head><!--/head-->
     <?php
         require_once './banner.php';
@@ -126,60 +144,24 @@ if (isset($_SESSION["logedOn"])) {
                         <li class="active">Carrito</li>
                     </ol>
                 </div>
-                <div class="table-responsive cart_info">
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr class="cart_menu">
-                                <td class="description">Descripción</td>
-                                <td class="price">Precio</td>
-                                <td class="quantity">Cantidad</td>
-                                <td class="total">Total</td>
-                                <td></td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if (isset($carProducts)) {
-                                require_once ('../model/products/Products.php');
-                                $productMaster = new Products();
-                                $totalOrder = 0;
-                                for ($i = 0; $i < count($carProducts); $i++) {
-                                    if ($carProducts[$i] != 0) {
-                                        $product = $productMaster->getProductById($carProducts[$i]);
-                                        ?>
-                                        <tr>
-                                            <td class="cart_description">
-                                                <h4><a href=""><?php echo $product->getNombre() . ' ' . $product->getDescripcion(); ?></a></h4>
-                                                <p>Referencia: <?php echo $product->getReferencia(); ?></p>
-                                            </td>
-                                            <td class="cart_price">
-                                                <p>$<?php echo $product->getPrecio(); ?></p>
-                                            </td>
-                                            <td class="cart_quantity">
-                                                <div class="cart_quantity_button">
-                                                    <form name="form">
-                                                        <a class="cart_quantity_up" href="#" onclick="process(2)"> + </a>
-                                                        <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-                                                        <a class="cart_quantity_down" href="#" onclick="process(1)"> - </a>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                            <td class="cart_total">
-                                                <p class="cart_total_price">$<?php echo $product->getPrecio(); ?></p>
-                                            </td>
-                                            <td class="cart_delete">
-                                                <?php echo '<a class="cart_quantity_delete" href="cart.php?idProducto=' . $product->getIdProducto() . '&operation=1"><i class="fa fa-times"></i></a>'; ?>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        $totalOrder+=$product->getPrecio();
-                                    }
-                                }
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                <!--<div  style="height: 330px; overflow-y: auto; margin-bottom: 50px">-->
+                    <div class="cart_info" style="/*width: 98%*/">
+                        <table class="table table-condensed table-responsive">
+                            <thead>
+                                <tr class="cart_menu">
+                                    <td class="description">Descripción</td>
+                                    <td class="price">Precio</td>
+                                    <td class="quantity">Cantidad</td>
+                                    <td class="total">Total</td>
+                                    <td></td>
+                                </tr>
+                            </thead> 
+                            <tbody id="list_products">
+
+                            </tbody>
+                        </table>
+                    </div>
+                <!--</div>-->
             </div>
         </section> <!--/#cart_items-->
 
@@ -195,24 +177,20 @@ if (isset($_SESSION["logedOn"])) {
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="total_area">
-                            <ul>
-                                <?php
-                                $iva = ($totalOrder * 0.16);
-                                $subTotal = $totalOrder - $iva;
-                                ?>
-                                <li>Subtotal de productos en el carrito<span>$<?php echo $subTotal; ?></span></li>
-                                <li>Iva <span>$<?php echo $iva; ?></span></li>
+                            <ul>                                
                                 <li>Costos de entrega<span>Gratis</span></li>
-                                <li>Total <span>$<?php echo $totalOrder; ?></span></li>
+                                <li>Total <span id="totalCompra"></span></li>
                             </ul>
                             <?php
-                            $productsString = "";
+                            /*$productsString = "";
                             for ($i = 0; $i < count($carProducts); $i++) {
                                 $productsString .= $carProducts[$i] . "-";
                             }
                             echo '<a class="btn btn-default update" href="../controller/CCart.php?orderType=1&totalPedido=' . $totalOrder . '&products=' . $productsString . '">Cotización</a>';
                             echo '<a class="btn btn-default check_out" href="../controller/CCart.php?orderType=2&totalPedido=' . $totalOrder . '&products=' . $productsString . '">Orden de compra</a>';
-                            ?>
+                            */?>
+                            <a class="btn btn-default update" id="contizar">Cotización</a>
+                            <a class="btn btn-default check_out" id="ordenCompra">Orden de compra</a>
                         </div>
                     </div>
                 </div>
@@ -222,12 +200,41 @@ if (isset($_SESSION["logedOn"])) {
         <?php
         require_once './footer.php';
         ?>
+        
+        
+        <script type="text/template" id="temp_list">
+            <%_.each(products, function(product){%>
+                <tr>
+                    <td class="cart_description">
+                        <h4><%-product.nombre%></h4>
+                        <p>Referencia: <%-product.referencia%></p>
+                    </td>
+                    <td class="cart_price">
+                        <p><%-accounting.formatMoney(product.precio)%></p>
+                    </td>
+                    <td class="cart_quantity">
+                        <div class="cart_quantity_button">
+                            <button type="button" class="cart_quantity_up btn_acc pull-left" data-role="up" data-id="<%-product.id%>" data-precio="<%-product.precio%>"> + </button>
+                            <input class="cart_quantity_input" type="text" name="quantity" value="<%-product.cant%>" autocomplete="off" size="2">
+                            <button type="button" class="cart_quantity_down btn_acc" data-role="down" data-id="<%-product.id%>" data-precio="<%-product.precio%>"> - </button>
+                        </div>
+                    </td>
+                    <td class="cart_total">
+                        <p class="cart_total_price"><%-accounting.formatMoney(product.precio_total)%></p>
+                    </td>
+                    <td class="cart_delete">
+                        <button type="button" class="btn btn-danger btn-sm" data-role="delete" data-id="<%-product.id%>">Borrar</borrar>
+                    </td>
+                </tr>
+            <%});%>
+        </script>
 
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/utilities2.js"></script>
         <script src="js/funciones/cart.js"></script>
     </body>
 </html>

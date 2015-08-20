@@ -1,5 +1,3 @@
-
-
 main();
 
 
@@ -24,7 +22,6 @@ function setVistaProductos(data) {
         productos: data
     }));
 
-    //  EVENTOS
     $('#lista_productos tr button[data-role="delete"]').click(function () {
         var objProduct = {};
         objProduct.id = $(this).attr("data-id");

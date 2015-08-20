@@ -3,3 +3,53 @@
 //require_once ('../bean/BodyBean.php');
 //require_once ('../../lib/PHPExcel.php');
 //require_once ('../../lib/PHPExcel/IOFactory.php');
+
+
+
+
+
+
+
+
+////// CARRITO
+
+<div><?php //var_dump($carProducts); ?></div>
+                            <?php
+                            if (isset($carProducts)) {
+                                require_once ('../model/products/Products.php');
+                                $productMaster = new Products();
+                                $totalOrder = 0;
+                                for ($i = 0; $i < count($carProducts); $i++) {
+                                    if ($carProducts[$i] != 0) {
+                                        $product = $productMaster->getProductById($carProducts[$i]);
+                                        ?>
+                                        <tr>
+                                            <td class="cart_description">
+                                                <h4><a href=""><?php echo $product->getNombre() . ' ' . $product->getDescripcion(); ?></a></h4>
+                                                <p>Referencia: <?php echo $product->getReferencia(); ?></p>
+                                            </td>
+                                            <td class="cart_price">
+                                                <p>$<?php echo $product->getPrecio(); ?></p>
+                                            </td>
+                                            <td class="cart_quantity">
+                                                <div class="cart_quantity_button">
+                                                    <form name="form">
+                                                        <a class="cart_quantity_up" href="#" onclick="process(2)"> + </a>
+                                                        <input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+                                                        <a class="cart_quantity_down" href="#" onclick="process(1)"> - </a>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                            <td class="cart_total">
+                                                <p class="cart_total_price">$<?php echo $product->getPrecio(); ?></p>
+                                            </td>
+                                            <td class="cart_delete">
+                                                <?php echo '<a class="cart_quantity_delete" href="cart.php?idProducto=' . $product->getIdProducto() . '&operation=1"><i class="fa fa-times"></i></a>'; ?>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                        $totalOrder+=$product->getPrecio();
+                                    }
+                                }
+                            }
+                            ?>

@@ -90,7 +90,7 @@
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
                         <h3>Agregar Producto</h3>
-                        <div class="signup-form" style="height: 800px">
+                        <div class="signup-form" style="height: 900px">
                             <form id="form_nuevo_producto" enctype="multipart/form-data" method="POST">
                                 <label>Nombre</label>
                                 <input type="text" class="" id="nombre" name="nombre" placeholder="Nombre" autofocus>
@@ -110,6 +110,9 @@
                                 <label>Categoria</label>
                                 <input type="text" class="" id="categoria" name="categoria" placeholder="Categoria">
                                 <span style="color: #A41010; display: none;" class="pull-right" data-id="categoria">El campo es requerido.</span><br>
+<!--                                <label>Cantidad</label>
+                                <input type="text" class="" id="cantidad" name="cantidad" placeholder="Cantidad">
+                                <span style="color: #A41010; display: none;" class="pull-right" data-id="cantidad">El campo es requerido.</span><br>-->
                                 <label>Imagen</label>
                                 <input type="file" class="" id="imagenUp" name="imagen">
                                 <button type="button" id="btn_agregar" class="btn btn-default">Agregar</button>
