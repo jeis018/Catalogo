@@ -2629,8 +2629,31 @@ btn_acc{
     text-shadow: 2px 2px 5px #000;
 }
 
+
+
+/*---------------FONDO-----------------*/
+
+
 #fondo{
-    top: 0; 
+    width: 100%;
+    padding: 0;
+}
+
+#fondo img{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+#fondo a{
+    position: absolute;
+    bottom: 30px;
+    margin: 0 auto;
+    padding: 15px 0;
     left: 0;
-    padding-left: 35%;
+    right: 0;
+    width: 150px;
+    font-size: 22px;
+    text-shadow: 2px 2px 5px #000;
 }

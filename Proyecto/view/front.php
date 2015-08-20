@@ -23,8 +23,17 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link> 
+    <style>
+        html, body{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head><!--/head-->
 <body>
-    <img id="fondo" src="images/home/front.png" alt="front" />
-    <a href="index.php" class="btn btn-default update">Continuar</a>
+    <div id="fondo">
+        <img src="images/home/front.png" alt="front">
+        <a href="index.php" class="btn btn-default update">Continuar</a>
+    </div>
 </body>
