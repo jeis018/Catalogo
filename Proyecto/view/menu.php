@@ -1,3 +1,10 @@
+<?php
+$includeAux = basename($_SERVER['PHP_SELF']);
+
+$trozos = explode(".", $includeAux);
+$cuantos = count($trozos);
+$include = $trozos[0];
+?>
 <div class="mainmenu pull-left">
     <ul class="nav navbar-nav collapse navbar-collapse">
         <li>
@@ -16,7 +23,7 @@
             if ($userType == 'A') {
                 ?>
                 <li class = "dropdown">
-                    <a <?php echo ($include === 'orders' || $include === 'administration') ? 'class="active"' : '' ?> href = "#">
+                    <a <?php echo ($include === 'orders' || $include === 'administration') ? '' : '' ?> href = "#">
                         Administración<i class = "fa fa-angle-down"></i>
                     </a>
                     <ul role = "menu" class = "sub-menu">

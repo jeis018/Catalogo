@@ -34,78 +34,33 @@ $product = $productIns->getProductById($idProd);
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     </head><!--/head-->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
-        <script src="js/zoomy.min.js"></script>
-	<script type="text/javascript" language="javascript">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+    <script src="js/zoomy.min.js"></script>
+    <script type="text/javascript" language="javascript">
 
         $(function () {
             $('.detalleimg').zoomy();
         });
-	</script>
-
-	</script>
-    <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>	
-    <script type="text/javascript">	
-        try{var pageTracker = _gat._getTracker("UA-2030729-5");pageTracker._initData();pageTracker._trackPageview();}catch(ex){}
     </script>
- <?php
-        require_once './banner.php';
-        ?>
-    <body>
-        <header id="header"><!--header-->
-            <div class="header-middle"><!--header-middle-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="logo pull-left">
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="shop-menu pull-right">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-                                    <?php
-                                    if (isset($_SESSION["logedOn"])) {
-                                        $logedOn = $_SESSION["logedOn"];
-                                        if ($logedOn == FALSE) {
-                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Login</a></li>';
-                                        } else {
-                                            echo '<li><a href="login.php"><i class="fa fa-lock"></i> Cerrar sesión</a></li>';
-                                        }
-                                    }
-                                    ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/header-middle-->
 
-            <div class="header-bottom"><!--header-bottom-->
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-9">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                            </div>
-                            
-                            <?php
-                            $include = basename(__FILE__, '.php');
-                            require_once './menu.php';
-                            ?>
-                            
-                        </div>
-                    </div>
-                </div>
-            </div><!--/header-bottom-->
-        </header><!--/header-->
+    <script type="text/javascript">
+        var gaJsHost = (("https:" === document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-2030729-5");
+            pageTracker._initData();
+            pageTracker._trackPageview();
+        } catch (ex) {
+        }
+    </script>
+
+    <body>
+        <?php
+        require_once './header.php';
+        ?>
 
         <section>
             <div class="container">
@@ -119,12 +74,12 @@ $product = $productIns->getProductById($idProd);
                                         <h4 class="panel-title"><a href="shop.php?indicator=1">Bolígrafos</a></h4>
                                     </div>
                                 </div>
-                                   <div class="panel panel-default">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title"><a href="shop.php?indicator=6">Compas</a></h4>
                                     </div>
                                 </div>
-                                 <div class="panel panel-default">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h4 class="panel-title"><a href="shop.php?indicator=15">Tajalápiz</a></h4>
                                     </div>
@@ -228,14 +183,14 @@ $product = $productIns->getProductById($idProd);
         ?>
 
 
-        
+
         <script src="js/price-range.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
 
-        
-        
+
+
     </body>
 </html>
