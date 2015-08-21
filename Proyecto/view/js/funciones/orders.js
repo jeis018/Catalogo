@@ -41,6 +41,6 @@ function cambiarEstadoPedido(id){
     });
     
     
-    location.href="../model/reportsPDF/generarPdf.php?id="+ id;
+    //location.href="../model/reportsPDF/generarPdf.php?id="+ id;
     
 }
