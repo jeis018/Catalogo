@@ -167,7 +167,6 @@ $b = $_SESSION["user"][0];
                                                     echo '<a onclick="add('.$regProducts[$i]["idProducto"].')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
                                                     ?>
                                                 </div>
-                                                
                                             </div>
                                             <div class="choose">
                                                 <ul class="nav nav-pills nav-justified">
