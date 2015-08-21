@@ -16,6 +16,8 @@ $totalProducts = $product->totalRows($indicatorCategory);
 
 $zebraPage->records($totalProducts);
 $zebraPage->records_per_page($productsPerPage);
+
+$b = $_SESSION["user"][0];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,6 +43,7 @@ $zebraPage->records_per_page($productsPerPage);
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <script>var batc="<?php echo $b;?>";</script>
     </head><!--/head-->
 
     <body>
