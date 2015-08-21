@@ -25,15 +25,17 @@
     <link> 
     <style>
         html, body{
-            width: 100%;
-            margin: 0;
-            padding: 0;
+            background:url(images/home/front.png) no-repeat center center fixed; 
         }
+
+    body,td,th {
+	font-family: Roboto, sans-serif;
+}
     </style>
 </head><!--/head-->
 <body>
     <div id="fondo">
-        <img src="images/home/front.png" alt="front">
+        <!--<img src="images/home/front.png" alt="front">-->
         <a href="index.php" class="btn btn-default update">Continuar</a>
     </div>
 </body>
