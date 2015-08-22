@@ -3,12 +3,9 @@
 require_once ('../config/DBOperator.php');
 require_once ('../model/reports/OrdersReport.php');
 require_once ('../utils/UtilsTools.php');
-//require_once ('../model/PDF/fpdf.php');
-//require_once ('../model/reports2/generarPdf.php');
 
 $db = new DBDriver(PDOConfig::getInstance());
 
-//$pdf = new PDF();
 
 /**
  * Clase que realiza la gestión de las ordenes de compra.
@@ -65,8 +62,7 @@ class Orders {
         $query = "CALL insertOrder(?,?,?,?,?)";
         $response = $db->set($query, $datos);
         
-        
-        //return $response[0]["idPedido"];
+        return $response[0]["idPedido"];
         //return ($db->getRowCount() > 0) ? TRUE : FALSE;
     }
 
@@ -79,16 +75,8 @@ class Orders {
     public function insertDetailProduct($products, $idPedido) {
         global $db;
         $query = "CALL insertProductDetail(?,?,?)";
-        /* for ($i = 0; $i < count($products); $i++) {
-          //if ($products[$i] != 0) {
-          echo $idPedido . '-' . $products[$i] . "-" . 1;
-          $datos = array(intval($idPedido), intval($products[$i]), 1);
-          $db->set($query, $datos);
-          //}
-          } */
 
-        var_dump($products);
-
+        //var_dump($products);
 
         foreach ($products as $product) {
             if ($product != 0) {

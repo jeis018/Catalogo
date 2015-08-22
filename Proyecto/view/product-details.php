@@ -6,6 +6,7 @@ $idProd = $_GET["idProducto"];
 
 $productIns = new Products();
 $product = $productIns->getProductById($idProd);
+$b = $_SESSION["user"][0];
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,7 @@ $product = $productIns->getProductById($idProd);
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <script>var batc="<?php echo $b;?>";</script>
     </head><!--/head-->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
     <script src="js/zoomy.min.js"></script>
@@ -166,7 +168,7 @@ $product = $productIns->getProductById($idProd);
                                     echo '<span>';
                                     echo '<span>$' . $product->getPrecio() . '</span>';
                                     echo '</span>';
-                                    echo '<a href="cart.php?idProducto=' . $product->getIdProducto() . '" 
+                                    echo '<a onclick="add('.$product->getIdProducto().')"
                                         class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
                                     echo '<p><b>Presentación: </b>' . $product->getUnidadVenta() . '</p>';
                                     ?>
@@ -178,6 +180,12 @@ $product = $productIns->getProductById($idProd);
             </div>
         </section>
 
+        
+        <div class="msg-add" style="display: none">
+            <p>Agregado al carrito</p>
+        </div>
+        
+        
         <?php
         require_once './footer.php';
         ?>
@@ -189,6 +197,8 @@ $product = $productIns->getProductById($idProd);
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/utilities2.js"></script>
+        <script src="js/funciones/addProduct.js"></script>
 
 
 

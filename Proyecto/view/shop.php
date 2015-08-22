@@ -16,6 +16,8 @@ $totalProducts = $product->totalRows($indicatorCategory);
 
 $zebraPage->records($totalProducts);
 $zebraPage->records_per_page($productsPerPage);
+
+$b = $_SESSION["user"][0];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,6 +43,7 @@ $zebraPage->records_per_page($productsPerPage);
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+        <script>var batc="<?php echo $b;?>";</script>
     </head><!--/head-->
 
     <body>
@@ -161,17 +164,8 @@ $zebraPage->records_per_page($productsPerPage);
                                                     echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                     echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
                                                     echo '</tr>';
-                                                    echo '<a href="' . $regProducts[$i]["idProducto"] . '" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
+                                                    echo '<a onclick="add('.$regProducts[$i]["idProducto"].')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
                                                     ?>
-                                                </div>
-                                                <div class="product-overlay">
-                                                    <div class="overlay-content">
-                                                        <?php
-                                                        echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
-                                                        echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
-                                                        echo '<a onclick="add('.$regProducts[$i]["idProducto"].')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
-                                                        ?>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="choose">

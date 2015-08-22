@@ -108,6 +108,11 @@ if (isset($_SESSION["logedOn"])) {
 
                             </tbody>
                         </table>
+                        <div>
+                            <button id="removeAll" class="btn btn-danger btn-xs pull-right" style="margin-top: 20px; display: none">
+                                Quitar todos los productos
+                            </button>
+                        </div>
                     </div>
                 <!--</div>-->
             </div>
@@ -129,14 +134,7 @@ if (isset($_SESSION["logedOn"])) {
                                 <li>Costos de entrega<span>Gratis</span></li>
                                 <li>Total <span id="totalCompra"></span></li>
                             </ul>
-                            <?php
-                            /*$productsString = "";
-                            for ($i = 0; $i < count($carProducts); $i++) {
-                                $productsString .= $carProducts[$i] . "-";
-                            }
-                            echo '<a class="btn btn-default update" href="../controller/CCart.php?orderType=1&totalPedido=' . $totalOrder . '&products=' . $productsString . '">Cotización</a>';
-                            echo '<a class="btn btn-default check_out" href="../controller/CCart.php?orderType=2&totalPedido=' . $totalOrder . '&products=' . $productsString . '">Orden de compra</a>';
-                            */?>
+                            
                             <a class="btn btn-default update" id="contizar">Cotización</a>
                             <a class="btn btn-default check_out" id="ordenCompra">Orden de compra</a>
                         </div>
@@ -171,7 +169,7 @@ if (isset($_SESSION["logedOn"])) {
                         <p class="cart_total_price"><%-accounting.formatMoney(product.precio_total)%></p>
                     </td>
                     <td class="cart_delete">
-                        <button type="button" class="btn btn-danger btn-sm" data-role="delete" data-id="<%-product.id%>">Borrar</borrar>
+                        <button type="button" class="btn btn-danger btn-xs" data-role="delete" data-id="<%-product.id%>">Borrar</borrar>
                     </td>
                 </tr>
             <%});%>

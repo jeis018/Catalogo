@@ -1,6 +1,3 @@
-//var ids = [1, 2, 3, 4, 5, 6, 7];
-//sessionStorage.setItem('list', JSON.stringify(ids));
-
 var list;
 var listProducts;
 var total = 0;
@@ -24,6 +21,11 @@ function loadProducts() {
         type: 'POST',
         success: function (response) {
             response = JSON.parse(response);
+            if(_.size(response) >=  1){
+                $('#removeAll').css('display', 'block');
+            }else{
+                $('#removeAll').css('display', 'none');
+            }
             setProducts(response);
             setListProducts(response);
         },
@@ -106,17 +108,37 @@ function quitar(id){
 }
 
 
-function getProducts(){
-    var $products = listProducts.join('-');
-    return $products;
+function insertOrden(i, t, l){      
+    $.ajax({
+        url: '../controller/CCart.php',
+        data: 'peticion=' + JSON.stringify({
+            type : i,
+            total : t,
+            data : l
+        }),
+        type: 'POST',
+        success: function (response) {
+            response = JSON.parse(response);
+            if(i === 1){
+                location.href='../model/reportsPDF/generarPdf.php?id='+response;
+            }else{
+                //location.href='../controller/CCart.php?orderType=2&totalPedido='+total+'&products='+getProducts(); 
+            }
+        }
+    });
+}
+
+
+function remove_data(){
+    sessionStorage.removeItem('list');
+    $('#removeAll').css('display', 'none');
 }
 
 
 
 $('#contizar').click(function(){
     if(total > 0){
-        location.href='../controller/CCart.php?orderType=1&totalPedido='+total+'&products='+getProducts();
-        sessionStorage.removeItem('list');
+        insertOrden(1, total, list);
     }else{
         alert('No hay productos en la lista');
     }
@@ -125,10 +147,16 @@ $('#contizar').click(function(){
 
 $('#ordenCompra').click(function(){
     if(total > 0){
-        location.href='../controller/CCart.php?orderType=2&totalPedido='+total+'&products='+getProducts(); 
-        sessionStorage.removeItem('list');
+        insertOrden(2, total, list);
+        remove_data();
     }else{
         alert('No hay productos en la lista');
     }
+});
+
+
+$('#removeAll').click(function(){
+    remove_data();
+    location.href='shop.php?indicator=0';
 });
 
