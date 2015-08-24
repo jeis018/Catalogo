@@ -55,7 +55,7 @@ function setListProducts(data){
         var act = cant * precio;
         $(this).parent().parent().parent().find("td[class='cart_total']").children().text(accounting.formatMoney(act));
         
-        recalcular(id, act);
+        recalcular(id, act, cant);
     });
     
     $('#list_products tr button[data-role="down"]').click(function(){
@@ -70,7 +70,7 @@ function setListProducts(data){
             var act = ptot - precio;
             $(this).parent().parent().parent().find("td[class='cart_total']").children().text(accounting.formatMoney(act));
 
-            recalcular(id, act);
+            recalcular(id, act, cant);
         }
     });
     
@@ -91,9 +91,10 @@ function calcular_total(){
 }
 
 
-function recalcular(id, precioAc){
+function recalcular(id, precioAc, cantidad){
     var obj = _.findWhere(listProducts, {id: id});
     obj.precio_total = ''+precioAc;
+    obj.cant = cantidad;
     
     calcular_total();
 }
@@ -108,7 +109,7 @@ function quitar(id){
 }
 
 
-function insertOrden(i, t, l){      
+function insertOrden(i, t, l){    
     $.ajax({
         url: '../controller/CCart.php',
         data: 'peticion=' + JSON.stringify({
@@ -117,7 +118,7 @@ function insertOrden(i, t, l){
             data : l
         }),
         type: 'POST',
-        success: function (response) {
+        success: function (response) {      console.log(response);
             response = JSON.parse(response);
             if(i === 1){
                 location.href='../model/reportsPDF/generarPdf.php?id='+response;
@@ -139,7 +140,7 @@ function remove_data(){
 
 $('#contizar').click(function(){
     if(total > 0){
-        insertOrden(1, total, list);
+        insertOrden(1, total, listProducts);
     }else{
         alert('No hay productos en la lista');
     }
@@ -148,7 +149,7 @@ $('#contizar').click(function(){
 
 $('#ordenCompra').click(function(){
     if(total > 0){
-        insertOrden(2, total, list);
+        insertOrden(2, total, listProducts);
         remove_data();
     }else{
         alert('No hay productos en la lista');
