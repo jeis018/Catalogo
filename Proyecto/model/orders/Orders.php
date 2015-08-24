@@ -38,10 +38,8 @@ class Orders {
         $datos = array($id);
         $db->set($query, $datos);
 
-        $reportExcel = new OrdersReport();
-        $reportExcel->generateReport(intval($id));
-        
-        //return $id;
+        //$reportExcel = new OrdersReport();
+        //$reportExcel->generateReport(intval($id));
 
         return ($db->getRowCount() > 0) ? 'Orden de compra atendida.' : 'Error al atender la Orden.';
     }

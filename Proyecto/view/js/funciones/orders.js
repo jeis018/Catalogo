@@ -38,9 +38,9 @@ function cambiarEstadoPedido(id){
         return peticion;            
     },function(respuesta){      
         console.log('reponse: ', respuesta); 
+        location.href="../model/reportsExcel/generarExcel.php?id="+id+"&ac=D";
     });
     
     
-    //location.href="../model/reportsPDF/generarPdf.php?id="+ id;
     
 }

@@ -122,7 +122,7 @@ function insertOrden(i, t, l){
             if(i === 1){
                 location.href='../model/reportsPDF/generarPdf.php?id='+response;
             }else{
-                //location.href='../controller/CCart.php?orderType=2&totalPedido='+total+'&products='+getProducts(); 
+                location.href="../model/reportsExcel/generarExcel.php?id="+response+"&ac=S";
             }
         }
     });
