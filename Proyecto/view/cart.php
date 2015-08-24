@@ -60,22 +60,22 @@ if (isset($_SESSION["logedOn"])) {
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-        
+
         <script src="js/utilidad3.js"></script>
         <script>
             accounting.settings = {
-                    currency: {
-                            symbol : "$",   // default currency symbol is '$'
-                            format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
-                            decimal : ".",  // decimal point separator
-                            thousand: ",",  // thousands separator
-                            precision : 0   // decimal places
-                    },
-                    number: {
-                            precision : 0,  // default precision on numbers is 0
-                            thousand: ",",
-                            decimal : "."
-                    }
+                currency: {
+                    symbol : "$",   // default currency symbol is '$'
+                    format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+                    decimal : ".",  // decimal point separator
+                    thousand: ",",  // thousands separator
+                    precision : 0   // decimal places
+                },
+                number: {
+                    precision : 0,  // default precision on numbers is 0
+                    thousand: ",",
+                    decimal : "."
+                }
             }
         </script>
     </head><!--/head-->
@@ -93,27 +93,27 @@ if (isset($_SESSION["logedOn"])) {
                     </ol>
                 </div>
                 <!--<div  style="height: 330px; overflow-y: auto; margin-bottom: 50px">-->
-                    <div class="cart_info" style="/*width: 98%*/">
-                        <table class="table table-condensed table-responsive">
-                            <thead>
-                                <tr class="cart_menu">
-                                    <td class="description">Descripción</td>
-                                    <td class="price">Precio</td>
-                                    <td class="quantity">Cantidad</td>
-                                    <td class="total">Total</td>
-                                    <td></td>
-                                </tr>
-                            </thead> 
-                            <tbody id="list_products">
+                <div class="cart_info" style="/*width: 98%*/">
+                    <table class="table table-condensed table-responsive">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="description">Descripción</td>
+                                <td class="price">Precio</td>
+                                <td class="quantity">Cantidad</td>
+                                <td class="total">Total</td>
+                                <td></td>
+                            </tr>
+                        </thead> 
+                        <tbody id="list_products">
 
-                            </tbody>
-                        </table>
-                        <div>
-                            <button id="removeAll" class="btn btn-danger btn-xs pull-right" style="margin-top: 20px; display: none">
-                                Quitar todos los productos
-                            </button>
-                        </div>
+                        </tbody>
+                    </table>
+                    <div>
+                        <button id="removeAll" class="btn btn-danger btn-xs pull-right" style="margin-top: 20px; display: none">
+                            Quitar todos los productos
+                        </button>
                     </div>
+                </div>
                 <!--</div>-->
             </div>
         </section> <!--/#cart_items-->
@@ -134,7 +134,7 @@ if (isset($_SESSION["logedOn"])) {
                                 <li>Costos de entrega<span>Gratis</span></li>
                                 <li>Total <span id="totalCompra"></span></li>
                             </ul>
-                            
+
                             <a class="btn btn-default update" id="contizar">Cotización</a>
                             <a class="btn btn-default check_out" id="ordenCompra">Orden de compra</a>
                         </div>
@@ -146,41 +146,40 @@ if (isset($_SESSION["logedOn"])) {
         <?php
         require_once './footer.php';
         ?>
-        
-        
+
         <script type="text/template" id="temp_list">
             <%_.each(products, function(product){%>
-                <tr>
-                    <td class="cart_description">
-                        <h4><%-product.nombre%></h4>
-                        <p>Referencia: <%-product.referencia%></p>
-                    </td>
-                    <td class="cart_price">
-                        <p><%-accounting.formatMoney(product.precio)%></p>
-                    </td>
-                    <td class="cart_quantity">
-                        <div class="cart_quantity_button">
-                            <button type="button" class="cart_quantity_up btn_acc pull-left" data-role="up" data-id="<%-product.id%>" data-precio="<%-product.precio%>"> + </button>
-                            <input class="cart_quantity_input" type="text" name="quantity" value="<%-product.cant%>" autocomplete="off" size="2">
-                            <button type="button" class="cart_quantity_down btn_acc" data-role="down" data-id="<%-product.id%>" data-precio="<%-product.precio%>"> - </button>
-                        </div>
-                    </td>
-                    <td class="cart_total">
-                        <p class="cart_total_price"><%-accounting.formatMoney(product.precio_total)%></p>
-                    </td>
-                    <td class="cart_delete">
-                        <button type="button" class="btn btn-danger btn-xs" data-role="delete" data-id="<%-product.id%>">Borrar</borrar>
-                    </td>
-                </tr>
-            <%});%>
-        </script>
+        <tr>
+            <td class="cart_description">
+                <h4><%-product.nombre%></h4>
+                <p>Referencia: <%-product.referencia%></p>
+            </td>
+            <td class="cart_price">
+                <p><%-accounting.formatMoney(product.precio)%></p>
+            </td>
+            <td class="cart_quantity">
+                <div class="cart_quantity_button">
+                    <button type="button" class="cart_quantity_up btn_acc pull-left" data-role="up" data-id="<%-product.id%>" data-precio="<%-product.precio%>"> + </button>
+                    <input class="cart_quantity_input" type="text" name="quantity" value="<%-product.cant%>" autocomplete="off" size="2">
+                    <button type="button" class="cart_quantity_down btn_acc" data-role="down" data-id="<%-product.id%>" data-precio="<%-product.precio%>"> - </button>
+                </div>
+            </td>
+            <td class="cart_total">
+                <p class="cart_total_price"><%-accounting.formatMoney(product.precio_total)%></p>
+            </td>
+            <td class="cart_delete">
+                <button type="button" class="btn btn-danger btn-xs" data-role="delete" data-id="<%-product.id%>">Borrar</borrar>
+        </td>
+    </tr>
+    <%});%>
+</script>
 
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.scrollUp.min.js"></script>
-        <script src="js/jquery.prettyPhoto.js"></script>
-        <script src="js/main.js"></script>
-        <script src="js/utilities2.js"></script>
-        <script src="js/funciones/cart.js"></script>
-    </body>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/main.js"></script>
+<script src="js/utilities2.js"></script>
+<script src="js/funciones/cart.js"></script>
+</body>
 </html>

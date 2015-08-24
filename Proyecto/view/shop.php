@@ -50,11 +50,6 @@ $b = $_SESSION["user"][0];
         <?php
         require_once './header.php';
         ?>
-        <section id="advertisement">
-            <!--            <div class="container">
-                            <img src="images/shop/advertisement.jpg" alt="" />
-                        </div>-->
-        </section>
 
         <section>
             <div class="container">
@@ -182,13 +177,11 @@ $b = $_SESSION["user"][0];
                             }
                             ?>   
 
-
                         </div><!--features_items-->
                     </div>
-
                 </div>
-
             </div>   
+
             <center>
                 <?php
                 echo '<ul class="pagination">';
@@ -203,11 +196,9 @@ $b = $_SESSION["user"][0];
         require_once './footer.php';
         ?>
         
-        
         <div class="msg-add" style="display: none">
             <p>Agregado al carrito</p>
         </div>
-
 
         <script src="js/jquery.js"></script>
         <script src="js/price-range.js"></script>

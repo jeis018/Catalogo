@@ -113,6 +113,8 @@ class OrdersReport implements IReport {
         $writerExcel = PHPExcel_IOFactory::createWriter($readerExcel, 'Excel2007');
         $writerExcel->save(RAIZ . '/Catalogo/Catalogo/Proyecto/model/reports/' . $fileReport);
         $writerExcel->save('php://output');
+        
+        return $fileReport;
     }
 
     /**
