@@ -42,7 +42,7 @@
                         <div class="contact-form">
                             <h2 class="title text-center">Escríbanos</h2>
                             <div class="alert alert-success" style="display: none"></div>
-                            <form id="main-contact-form" class="contact-form row" name="contact-form" method="post" action="../controller/CContactUs.php">
+                            <form id="main-contact-form" class="contact-form row" name="contact-form">
                                 <div class="form-group col-md-6">
                                     <input type="text" name="name" class="form-control" required="required" placeholder="Nombre">
                                 </div>
@@ -56,7 +56,7 @@
                                     <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Ingrese aquí su mensaje"></textarea>
                                 </div>                        
                                 <div class="form-group col-md-12">
-                                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Enviar">
+                                    <input type="submit" id="btn_enviar" name="enviar" class="btn btn-primary pull-right" value="Enviar">
                                 </div>
                             </form>
                         </div>
@@ -78,11 +78,13 @@
         require_once './footer.php';
         ?>
 
-        <script src="js/jquery.js"></script>
+        <script src="js/jquery-1.11.3.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
         <script type="text/javascript" src="js/gmaps.js"></script>
-        <script src="js/contact.js"></script>
+        <!--<script src="js/contact.js"></script>-->
+        <script src="js/utilities.js"></script>        
+        <script src="js/funciones/contact2.js"></script>
         <script src="js/price-range.js"></script>
         <script src="js/jquery.scrollUp.min.js"></script>
         <script src="js/jquery.prettyPhoto.js"></script>

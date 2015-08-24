@@ -16,12 +16,33 @@ class ReportMail {
 
         $mail->Subject = "Orden de compra número: " . $idOrder;
         $mail-> MsgHTML($body);
-        $mail-> AddAttachment($attach);
+        $mail-> AddAttachment('../emailOrders/'.$attach);
+        //unlink('../emailOrders/'.$attach);
 
         if (!$mail->Send()) {
             echo "<script type=\"text/javascript\">alert('Ha ocurrido un error solicitando la orden de compra, Contacte al administrador'); window.location='../view/index.php';</script>";
         } else {
             echo "<script type=\"text/javascript\">alert('Su orden de compra fué radicada correctamente.'); window.location='../view/index.php';</script>";
+        }
+    }
+    
+    
+    public function sendMail($msg, $asunto){
+        $mail = new PHPMailer();
+        $body = $msg;
+
+        $mail->SetFrom('info@madessa.co', 'Información administrativa Madessa.co');
+        $mail->AddReplyTo("info@madessa.co", "Información administrativa Madessa.co");
+        $address = "info@madessa.co";
+        $mail->AddAddress($address, "Información administrativa Madessa.co");
+
+        $mail->Subject = $asunto;
+        $mail-> MsgHTML($body);
+        
+        if (!$mail->Send()) {
+            echo "0";
+        } else {
+            echo "1";
         }
     }
 

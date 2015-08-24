@@ -123,6 +123,7 @@ function insertOrden(i, t, l){
                 location.href='../model/reportsPDF/generarPdf.php?id='+response;
             }else{
                 location.href="../model/reportsExcel/generarExcel.php?id="+response+"&ac=S";
+                main();
             }
         }
     });

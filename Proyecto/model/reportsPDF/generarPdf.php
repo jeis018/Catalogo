@@ -31,7 +31,7 @@ if (isset($_GET['id'])) {
     $pdf->SetTextColor(255, 255, 255);
     $pdf->SetFont('', 'B');
 
-    $pdf->Cell(190, 7, 'Cotización', 0, 0, 'C', true);
+    $pdf->Cell(190, 7, utf8_decode('Cotización'), 0, 0, 'C', true);
     $pdf->Ln();
     $pdf->Ln();
 
