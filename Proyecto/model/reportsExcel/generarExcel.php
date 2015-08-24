@@ -60,7 +60,7 @@ if (isset($_GET['id']) && isset($_GET['ac'])) {
         if($ac === 'D'){
             $objWriter->save('php://output');            
         }else{
-            $objWriter->save('../emailOrders/test1.xlsx');            
+            $objWriter->save('../emailOrders/'.$fileReport.'.xlsx');            
         }
         
         exit;
