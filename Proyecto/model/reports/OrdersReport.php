@@ -9,11 +9,11 @@ require_once ('IReport.php');
 //require_once ('../../lib/PHPExcel/IOFactory.php');
 
 
-//require_once ('../config/DBOperatorB.php');
-//require_once ('../model/bean/HeaderBean.php');
-//require_once ('../model/bean/BodyBean.php');
-//require_once ('../lib/PHPExcel.php');
-//require_once ('../lib/PHPExcel/IOFactory.php');
+require_once ('../config/DBOperatorB.php');
+require_once ('../model/bean/HeaderBean.php');
+require_once ('../model/bean/BodyBean.php');
+require_once ('../lib/PHPExcel.php');
+require_once ('../lib/PHPExcel/IOFactory.php');
 
 /**
  * Clase que permite realizar la generación del reporte en xls de las Ordenes de compra.
@@ -113,6 +113,8 @@ class OrdersReport implements IReport {
         $writerExcel = PHPExcel_IOFactory::createWriter($readerExcel, 'Excel2007');
         $writerExcel->save(RAIZ . '/Catalogo/Catalogo/Proyecto/model/reports/' . $fileReport);
         $writerExcel->save('php://output');
+        
+        return $fileReport;
     }
 
     /**
