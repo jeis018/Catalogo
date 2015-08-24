@@ -118,7 +118,7 @@ function insertOrden(i, t, l){
             data : l
         }),
         type: 'POST',
-        success: function (response) {      console.log(response);
+        success: function (response) {      
             response = JSON.parse(response);
             if(i === 1){
                 location.href='../model/reportsPDF/generarPdf.php?id='+response;
