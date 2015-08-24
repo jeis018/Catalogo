@@ -24,13 +24,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link> 
     <style>
-        html, body{
-            /*background:url(images/home/front.png) no-repeat center center fixed; */
+        body,td,th {
+            font-family: Roboto, sans-serif;
         }
-
-    body,td,th {
-	font-family: Roboto, sans-serif;
-}
     </style>
 </head><!--/head-->
 <body>
