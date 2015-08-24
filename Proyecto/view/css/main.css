@@ -2647,6 +2647,7 @@ btn_acc{
 
 #fondo img{
     position: relative;
+    top: 0;
     height: 90%;
 }
 
