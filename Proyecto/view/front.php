@@ -25,7 +25,7 @@
     <link> 
     <style>
         html, body{
-            background:url(images/home/front.png) no-repeat center center fixed; 
+            /*background:url(images/home/front.png) no-repeat center center fixed; */
         }
 
     body,td,th {
@@ -35,7 +35,7 @@
 </head><!--/head-->
 <body>
     <div id="fondo">
-        <!--<img src="images/home/front.png" alt="front">-->
+        <img src="images/home/front.png" alt="front">
         <a href="index.php" class="btn btn-default update">Continuar</a>
     </div>
 </body>

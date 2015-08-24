@@ -2636,14 +2636,18 @@ btn_acc{
 
 #fondo{
     width: 100%;
+    height: 100%;
     padding: 0;
+    text-align: center;
+    background: -webkit-linear-gradient(#FCD209, #F58220); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FCD209, #F58220); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FCD209, #F58220); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FCD209, #F58220); /* Standard syntax */
 }
 
 #fondo img{
     position: relative;
-    top: 0px;
-    left: 0px;
-    width: 100%;
+    height: 90%;
 }
 
 #fondo a{
