@@ -6,6 +6,7 @@ $db = new DBDriver(PDOConfig::getInstance());
 require_once ('../../lib/PHPExcel.php');
 require_once ('../../lib/PHPExcel/IOFactory.php');
 
+require_once '../reports/ReportMail.php';
 
 
 if (isset($_GET['id']) && isset($_GET['ac'])) {
@@ -60,7 +61,9 @@ if (isset($_GET['id']) && isset($_GET['ac'])) {
         if($ac === 'D'){
             $objWriter->save('php://output');            
         }else{
-            $objWriter->save('../emailOrders/'.$fileReport.'.xlsx');            
+            $objWriter->save('../emailOrders/'.$fileReport.'.xlsx');
+            $mailReport = new ReportMail();
+            $mailReport->sendReportMail($fileReport.'.xlsx', $resultInsert);
         }
         
         exit;

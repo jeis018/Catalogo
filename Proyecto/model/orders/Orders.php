@@ -76,12 +76,12 @@ class Orders {
 
         //var_dump($products);
 
-        foreach ($products as $product) {
-            if ($product != 0) {
+        foreach ($products as $product) {            
+            if ($product->id != 0) {
                 $db->set($query, array(
                     intval($idPedido),
-                    intval($product),
-                    intval(1)
+                    intval($product->id),
+                    $product->cant
                 ));
             }
         }
