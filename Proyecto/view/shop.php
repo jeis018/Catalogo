@@ -43,7 +43,7 @@ $b = $_SESSION["user"][0];
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-        <script>var batc="<?php echo $b;?>";</script>
+        <script>var batc="<?php echo $b; ?>";</script>
     </head><!--/head-->
 
     <body>
@@ -65,12 +65,12 @@ $b = $_SESSION["user"][0];
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=6">Compas</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=6">Compás</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=15">Tajalápiz</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=15">Tajalápices</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -80,7 +80,7 @@ $b = $_SESSION["user"][0];
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=11">Corretor</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=11">Correctores</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -90,7 +90,7 @@ $b = $_SESSION["user"][0];
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=13">Marcador</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=13">Marcadores</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -105,7 +105,7 @@ $b = $_SESSION["user"][0];
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=7">Lápices </a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=7">Lápices</a></h4>
                                     </div>
                                 </div>
                                 <div class="panel panel-default">
@@ -143,7 +143,7 @@ $b = $_SESSION["user"][0];
                             if ($indicatorCategory == 0) {
                                 echo '<h2 class="title text-center">Productos</h2>';
                             } else {
-                                echo '<h2 class = "title text-center">Productos - ' . $regProducts[0]["Categoria"] . '</h2>';
+                                echo '<h2 class = "title text-center">' . $regProducts[0]["Categoria"] . '</h2>';
                             }
                             if (isset($regProducts)) {
                                 for ($i = 0; $i < count($regProducts); $i++) {
@@ -159,7 +159,7 @@ $b = $_SESSION["user"][0];
                                                     echo '<h2>$' . $regProducts[$i]["Precio"] . '</h2>';
                                                     echo '<p>' . $regProducts[$i]["Nombre"] . '</p>';
                                                     echo '</tr>';
-                                                    echo '<a onclick="add('.$regProducts[$i]["idProducto"].')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
+                                                    echo '<a onclick="add(' . $regProducts[$i]["idProducto"] . ')" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Agregar al carrito</a>';
                                                     ?>
                                                 </div>
                                             </div>
@@ -195,7 +195,7 @@ $b = $_SESSION["user"][0];
         <?php
         require_once './footer.php';
         ?>
-        
+
         <div class="msg-add" style="display: none">
             <p>Agregado al carrito</p>
         </div>
