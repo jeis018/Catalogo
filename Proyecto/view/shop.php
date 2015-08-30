@@ -130,7 +130,7 @@ $b = $_SESSION["user"][0];
                                 </div>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h4 class="panel-title"><a href="shop.php?indicator=14">Kits de Variedades</a></h4>
+                                        <h4 class="panel-title"><a href="shop.php?indicator=14">Kits Variedades</a></h4>
                                     </div>
                                 </div>
                             </div><!--/category-productsr-->

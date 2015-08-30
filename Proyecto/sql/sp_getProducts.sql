@@ -22,7 +22,7 @@ BEGIN
     END iF;
 
 	IF _IndicatorCategory = 1 THEN
-		SET _Category = 'ESFEROS';
+		SET _Category = 'BOLÍGRAFOS';
     END iF;
 	
 	IF _IndicatorCategory = 2 THEN
